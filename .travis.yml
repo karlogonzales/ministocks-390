@@ -1,28 +1,27 @@
 language: android
-
 android:
   components:
-  - tools
-  - build-tools-25.0.2
-  - android-25
-  - sys-img-armeabi-v7a-android-25
+    - tools
+    - build-tools-25.0.2
+    - android-25
+    - sys-img-armeabi-v7a-android-25
   
- licenses:
-  - android-sdk-preview-license-.+
-  - android-sdk-license-.+
+  licenses:
+    - android-sdk-preview-license-.+
+    - android-sdk-license-.+
 
 jdk:
-- oraclejdk8
+  - oraclejdk8
 
 addons:
   sonarqube: true
 
 before_install:
-- chmod +x gradlew
+  - chmod +x gradlew
 
 script:
-- ./gradlew build connectedCheck
-- sonar-scanner -Dsonar.login=$SONAR_TOKEN
+  - ./gradlew build connectedCheck
+  - sonar-scanner -Dsonar.login=$SONAR_TOKEN
 
 notifications:
   slack:
