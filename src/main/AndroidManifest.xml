@@ -20,7 +20,7 @@
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
-    -->
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="nitezh.ministock"
@@ -30,20 +30,22 @@
     <uses-sdk android:minSdkVersion="16" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name">
-
         <activity
             android:name=".activities.MinistocksActivity"
             android:configChanges="orientation"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Dialog">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -52,7 +54,6 @@
             android:configChanges="orientation"
             android:label="Portfolio"
             android:launchMode="singleInstance">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -64,17 +65,19 @@
             android:finishOnTaskLaunch="true"
             android:label="Preferences"
             android:launchMode="singleInstance">
-
             <intent-filter>
                 <action android:name="android.intent.action.EDIT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.PICK" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
@@ -85,7 +88,6 @@
         <activity
             android:name=".activities.configure.ConfigureActivity1x2"
             android:theme="@android:style/Theme.Dialog">
-
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
@@ -93,7 +95,6 @@
         <activity
             android:name=".activities.configure.ConfigureActivity2x2"
             android:theme="@android:style/Theme.Dialog">
-
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
@@ -101,7 +102,6 @@
         <activity
             android:name=".activities.configure.ConfigureActivity1x4"
             android:theme="@android:style/Theme.Dialog">
-
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
@@ -109,7 +109,6 @@
         <activity
             android:name=".activities.configure.ConfigureActivity2x4"
             android:theme="@android:style/Theme.Dialog">
-
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
@@ -120,17 +119,19 @@
             android:excludeFromRecents="true"
             android:launchMode="singleTop"
             android:theme="@android:style/Theme.NoTitleBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.EDIT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.PICK" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
@@ -150,7 +151,6 @@
         <receiver
             android:name=".WidgetProvider"
             android:label="Ministocks">
-
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="nitezh.ministock.ASYNC_UPDATE" />
@@ -166,7 +166,6 @@
         <receiver
             android:name=".activities.widget.WidgetProvider1x4"
             android:label="Ministocks (wide)">
-
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -181,7 +180,6 @@
         <receiver
             android:name=".activities.widget.WidgetProvider2x2"
             android:label="Ministocks (tall)">
-
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -196,7 +194,6 @@
         <receiver
             android:name=".activities.widget.WidgetProvider2x4"
             android:label="Ministocks (wide/tall)">
-
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -208,5 +205,15 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_2x4" />
         </receiver>
+        <receiver android:name=".activities.configure.ConfigureActivityResizeable">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/configure_activity_resizeable_info" />
+        </receiver>
     </application>
+
 </manifest>
