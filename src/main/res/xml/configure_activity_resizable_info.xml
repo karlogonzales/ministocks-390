@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-    android:configure="nitezh.ministock.activities.configure.ConfigureActivity1x2"
-    android:initialLayout="@layout/configure_activity_resizeable"
+    android:initialLayout="@layout/configure_activity_resizable"
     android:minHeight="72dp"
     android:minWidth="146dp"
     android:resizeMode="vertical"
