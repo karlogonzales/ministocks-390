@@ -12,7 +12,7 @@
         android:layout_centerVertical="true"
         android:layout_margin="8dp"
         android:background="#932439"
-        android:contentDescription="toScreenSpace-8"
+        android:contentDescription="@string/appwidget_text"
         android:text="@string/appwidget_text"
         android:textColor="#ffffff"
         android:textSize="24sp"
