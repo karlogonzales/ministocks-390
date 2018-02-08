@@ -35,3 +35,4 @@ public class ConfigureActivity2x4 extends ConfigureActivityBase {
         super.onCreate(savedInstanceState);
     }
 }
+

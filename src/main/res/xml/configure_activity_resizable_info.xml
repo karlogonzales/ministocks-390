@@ -3,6 +3,7 @@
     android:initialLayout="@layout/configure_activity_resizable"
     android:minHeight="72dp"
     android:minWidth="146dp"
+    android:resizeMode="vertical"
     android:updatePeriodMillis="7200000"
     >
 
