@@ -228,10 +228,20 @@ class AndroidWidget implements Widget {
     }
 
     @Override
-    public boolean getTextStyle() {
-        return this.storage.getString("text_style", "normal").equals("bold");
-    }
+    public String getTextStyle() {
 
+        if(this.storage.getString("text_style", "normal").equals("bold"))
+        return "BOLD";
+
+        if(this.storage.getString("text_style", "normal").equals("italic"))
+        return "ITALIC";
+
+        if(this.storage.getString("text_style", "normal").equals("bold_italic"))
+        return "BOLD_ITALIC";
+
+        return "NORMAL";
+
+    }
     @Override
     public boolean getColorsOnPrices() {
         return this.storage.getBoolean("colours_on_prices", false);

@@ -147,12 +147,25 @@ class WidgetView {
     // Global formatter so we can perform global text formatting in one place
     private SpannableString applyFormatting(String s) {
         SpannableString span = new SpannableString(s);
-        if (this.widget.getTextStyle()) {
-            span.setSpan(new StyleSpan(Typeface.BOLD), 0, s.length(), 0);
-        } else {
-            span.setSpan(new StyleSpan(Typeface.NORMAL), 0, s.length(), 0);
+        switch (this.widget.getTextStyle()) {
+
+            case "BOLD":
+                span.setSpan(new StyleSpan(Typeface.BOLD), 0, s.length(), 0);
+                break;
+
+            case "ITALIC":
+                span.setSpan(new StyleSpan(Typeface.ITALIC), 0, s.length(), 0);
+                break;
+
+            case "BOLD_ITALIC":
+                span.setSpan(new StyleSpan(Typeface.BOLD_ITALIC), 0, s.length(), 0);
+                break;
+
+            default:
+                span.setSpan(new StyleSpan(Typeface.NORMAL), 0, s.length(), 0);
+                break;
         }
-        return span;
+           return span;
     }
 
     public void setOnClickPendingIntents() {
