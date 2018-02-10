@@ -165,6 +165,36 @@ class WidgetView {
                 span.setSpan(new StyleSpan(Typeface.NORMAL), 0, s.length(), 0);
                 break;
         }
+        switch (this.widget.getColourStyle()) {
+            case "WHITE":
+                span.setSpan(new StyleSpan(Color.WHITE), 0, s.length(), 0);
+                break;
+
+            case "RED":
+                span.setSpan(new StyleSpan(Color.RED), 0, s.length(), 0);
+                break;
+
+            case "Green":
+                span.setSpan(new StyleSpan(Color.GREEN), 0, s.length(), 0);
+                break;
+
+            case "Yellow":
+                span.setSpan(new StyleSpan(Color.YELLOW), 0, s.length(), 0);
+                break;
+
+            case "Cyan":
+                span.setSpan(new StyleSpan(Color.CYAN), 0, s.length(), 0);
+                break;
+
+            case "Gray":
+                span.setSpan(new StyleSpan(Color.GRAY), 0, s.length(), 0);
+                break;
+
+            default:
+                span.setSpan(new StyleSpan(Color.BLACK), 0, s.length(), 0);
+                break;
+        }
+
            return span;
     }
 
