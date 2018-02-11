@@ -93,8 +93,13 @@ public class MockWidget implements Widget {
     }
 
     @Override
-    public boolean getTextStyle() {
-        return false;
+    public String getTextStyle() {
+        return null;
+    }
+
+    @Override
+    public String getColourStyle() {
+        return null;
     }
 
     @Override
