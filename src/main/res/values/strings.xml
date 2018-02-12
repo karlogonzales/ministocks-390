@@ -59,6 +59,27 @@
         <item>remove</item>
     </string-array>
 
+    <string-array name="colour_entries">
+        <item>Black</item>
+        <item>White</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Yellow</item>
+        <item>Cyan</item>
+        <item>Gray</item>
+
+    </string-array>
+    <string-array name="colour_values">
+        <item>black</item>
+        <item>white</item>
+        <item>red</item>
+        <item>green</item>
+        <item>yellow</item>
+        <item>cyan</item>
+        <item>gray</item>
+
+    </string-array>
+
     <string-array name="text_style_entries">
         <item>Normal</item>
         <item>Bold</item>

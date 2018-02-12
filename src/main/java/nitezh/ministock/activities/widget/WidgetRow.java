@@ -46,9 +46,9 @@ class WidgetRow {
         this.widget = widget;
 
         this.symbol = "";
-        this.symbolDisplayColor = Color.WHITE;
+        this.symbolDisplayColor = this.parseColour();
         this.price = "";
-        this.priceColor = Color.WHITE;
+        this.priceColor = this.parseColour();
         this.volume = "";
         this.volumeColor = Color.WHITE;
         this.stockInfo = "";
@@ -57,6 +57,44 @@ class WidgetRow {
         this.stockInfoExtraColor = Color.WHITE;
 
     }
+
+    int parseColour() {
+
+        int dColour;
+
+        switch (this.widget.getColourStyle()) {
+
+            case "WHITE":
+                dColour=Color.WHITE;
+            break;
+
+            case "RED":
+                dColour=Color.RED;
+            break;
+
+            case "GREEN":
+                dColour=Color.GREEN;
+                break;
+
+            case "YELLOW":
+                dColour=Color.YELLOW;
+                break;
+
+            case "CYAN":
+                dColour=Color.CYAN;
+                break;
+
+            case "GRAY":
+                dColour=Color.GRAY;
+                break;
+
+            default:
+                dColour=Color.BLACK;
+            break;
+        }
+        return dColour;
+    }
+
 
     int getSymbolDisplayColor() {
         return symbolDisplayColor;

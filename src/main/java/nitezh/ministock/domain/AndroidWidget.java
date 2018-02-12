@@ -240,8 +240,32 @@ class AndroidWidget implements Widget {
         return "BOLD_ITALIC";
 
         return "NORMAL";
-
     }
+
+    @Override
+    public String getColourStyle() {
+
+        if (this.storage.getString("colour_style", "black").equals("white"))
+            return "WHITE";
+
+        if (this.storage.getString("colour_style", "black").equals("red"))
+            return "RED";
+
+        if (this.storage.getString("colour_style", "black").equals("green"))
+            return "GREEN";
+
+        if (this.storage.getString("colour_style", "black").equals("yellow"))
+            return "YELLOW";
+
+        if (this.storage.getString("colour_style", "black").equals("cyan"))
+            return "CYAN";
+
+        if (this.storage.getString("colour_style", "black").equals("gray"))
+            return "GRAY";
+
+        return "BLACK";
+    }
+
     @Override
     public boolean getColorsOnPrices() {
         return this.storage.getBoolean("colours_on_prices", false);

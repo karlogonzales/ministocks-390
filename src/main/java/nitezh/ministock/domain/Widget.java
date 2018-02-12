@@ -50,6 +50,8 @@ public interface Widget {
 
     String getTextStyle();
 
+    String getColourStyle();
+
     boolean getColorsOnPrices();
 
     String getFooterVisibility();

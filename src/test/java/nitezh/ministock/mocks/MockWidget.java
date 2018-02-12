@@ -98,6 +98,11 @@ public class MockWidget implements Widget {
     }
 
     @Override
+    public String getColourStyle() {
+        return null;
+    }
+
+    @Override
     public boolean getColorsOnPrices() {
         return false;
     }

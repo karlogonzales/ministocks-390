@@ -156,6 +156,12 @@
                     android:key="background"
                     android:title="Widget background" />
                 <ListPreference
+                    android:defaultValue="black"
+                    android:entries="@array/colour_entries"
+                    android:entryValues="@array/colour_values"
+                    android:key="colour_style"
+                    android:title="Widget colour style" />
+                <ListPreference
                     android:defaultValue="normal"
                     android:entries="@array/text_style_entries"
                     android:entryValues="@array/text_style_entryvalues"
