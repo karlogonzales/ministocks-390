@@ -10,14 +10,17 @@ jdk:
   - oraclejdk8
 
 addons:
-  sonarqube: true
+  sonarcloud:
+    organization: "karlogonzales-github" # the key of the org you chose at step #3
+    token:
+      secure: $SONAR_TOKEN
 
 before_install:
   - chmod +x gradlew
 
 script:
   - ./gradlew build connectedCheck
-  - sonar-scanner -Dsonar.login=$SONAR_TOKEN
+  - sonar-scanner
 
 notifications:
   slack:
