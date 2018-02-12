@@ -114,6 +114,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activities.configure.ConfigureActivityResizable"
+            android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activities.SymbolSearchableActivity"
             android:configChanges="orientation"
             android:excludeFromRecents="true"
@@ -205,7 +212,7 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_2x4" />
         </receiver>
-        <receiver android:name=".activities.configure.ConfigureActivityResizable"
+        <receiver android:name=".activities.widget.WidgetProviderResizable"
             android:label="Resizable"
             >
             <intent-filter>
@@ -214,7 +221,7 @@
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/configure_activity_resizable_info" />
+                android:resource="@xml/widget_resizable" />
         </receiver>
 
     </application>
