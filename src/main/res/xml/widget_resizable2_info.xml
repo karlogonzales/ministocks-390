@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:configure="nitezh.ministock.activities.configure.ConfigureActivityResizable"
+    android:initialLayout="@layout/widget_resizable"
+    android:minHeight="72dp"
+    android:minWidth="146dp"
+    android:resizeMode="vertical|horizontal"
+    android:updatePeriodMillis="7200000"
+    >
+
+</appwidget-provider>
