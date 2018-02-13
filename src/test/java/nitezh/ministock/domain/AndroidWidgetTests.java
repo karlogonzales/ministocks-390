@@ -66,4 +66,9 @@ public class AndroidWidgetTests {
         // Act and Assert
         assertEquals(true, widget.shouldUpdateOnRightTouch());
     }
+
+    @Test
+    public void testGetColourStyle(){
+        // ADD TEST HERE
+    }
 }
