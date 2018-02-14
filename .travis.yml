@@ -1,24 +1,10 @@
 language: android
-sudo: false
-env:
-  global:
-  - ANDROID_API_LEVEL=26
-  - ANDROID_BUILD_TOOLS_VERSION=26.0.1
-  - ANDROID_EMU_API_LEVEL=22
-  - ANDROID_ABI=armeabi-v7a
-  - ADB_INSTALL_TIMEOUT=20 # minutes (2 minutes by default)
-  - QEMU_AUDIO_DRV=none # Remove audio
-
 android:
   components:
-  - tools
-  - platform-tools
-  - tools
-  - build-tools-$ANDROID_BUILD_TOOLS_VERSION
-  - android-$ANDROID_API_LEVEL
-  - android-$ANDROID_EMU_API_LEVEL
-  - extra-android-support
-  - sys-img-$ANDROID_ABI-google_apis-$ANDROID_EMU_API_LEVEL
+    - tools
+    - build-tools-25.0.2
+    - android-25
+    - sys-img-armeabi-v7a-android-25
 
 jdk:
   - oraclejdk8
@@ -26,14 +12,8 @@ jdk:
 before_install:
   - chmod +x gradlew
 
-before_script:
-  - echo no | android create avd --force -n test -t android-$ANDROID_EMU_API_LEVEL --abi google_apis/$ANDROID_ABI
-  - emulator -avd test -no-window &
-
 script:
-  - ./wait_for_emulator
   - ./gradlew build connectedCheck
-  - ./gradlew --info connectedAndroidTest
 
 notifications:
   slack:
