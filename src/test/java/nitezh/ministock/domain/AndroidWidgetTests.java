@@ -69,6 +69,31 @@ public class AndroidWidgetTests {
 
     @Test
     public void testGetColourStyle(){
-        // ADD TEST HERE
+
+        Storage storage = widget.getStorage();
+
+        storage.putString("colour_style", "white");
+        storage.apply();
+        assertEquals("WHITE", widget.getColourStyle());
+
+        storage.putString("colour_style", "red");
+        storage.apply();
+        assertEquals("RED", widget.getColourStyle());
+
+        storage.putString("colour_style", "green");
+        storage.apply();
+        assertEquals("GREEN", widget.getColourStyle());
+
+        storage.putString("colour_style", "yellow");
+        storage.apply();
+        assertEquals("YELLOW", widget.getColourStyle());
+
+        storage.putString("colour_style", "cyan");
+        storage.apply();
+        assertEquals("CYAN", widget.getColourStyle());
+
+        storage.putString("colour_style", "gray");
+        storage.apply();
+        assertEquals("GRAY", widget.getColourStyle());
     }
 }
