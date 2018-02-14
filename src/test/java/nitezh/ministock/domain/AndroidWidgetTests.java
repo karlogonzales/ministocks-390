@@ -66,4 +66,60 @@ public class AndroidWidgetTests {
         // Act and Assert
         assertEquals(true, widget.shouldUpdateOnRightTouch());
     }
+
+    @Test
+    public void testGetColourStyle(){
+
+        Storage storage = widget.getStorage();
+
+        storage.putString("colour_style", "black");
+        storage.apply();
+        assertEquals("BLACK", widget.getColourStyle());
+
+        storage.putString("colour_style", "white");
+        storage.apply();
+        assertEquals("WHITE", widget.getColourStyle());
+
+        storage.putString("colour_style", "red");
+        storage.apply();
+        assertEquals("RED", widget.getColourStyle());
+
+        storage.putString("colour_style", "green");
+        storage.apply();
+        assertEquals("GREEN", widget.getColourStyle());
+
+        storage.putString("colour_style", "yellow");
+        storage.apply();
+        assertEquals("YELLOW", widget.getColourStyle());
+
+        storage.putString("colour_style", "cyan");
+        storage.apply();
+        assertEquals("CYAN", widget.getColourStyle());
+
+        storage.putString("colour_style", "gray");
+        storage.apply();
+        assertEquals("GRAY", widget.getColourStyle());
+    }
+
+    @Test
+    public void testGetTextStyle() {
+
+        Storage storage = widget.getStorage();
+
+        storage.putString("text_style", "normal");
+        storage.apply();
+        assertEquals("NORMAL", widget.getTextStyle());
+
+        storage.putString("text_style", "bold");
+        storage.apply();
+        assertEquals("BOLD", widget.getTextStyle());
+
+        storage.putString("text_style", "italic");
+        storage.apply();
+        assertEquals("ITALIC", widget.getTextStyle());
+
+        storage.putString("text_style", "bold_italic");
+        storage.apply();
+        assertEquals("BOLD_ITALIC", widget.getTextStyle());
+    }
 }
