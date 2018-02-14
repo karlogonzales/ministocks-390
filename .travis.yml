@@ -11,7 +11,7 @@ android:
     - platform-tools
     - tools
     - build-tools-$ANDROID_BUILD_TOOLS_VERSION
-    - android-21
+    - android-$ANDROID_API_LEVEL
     # For Google Maps API v1
     - addon-google_apis-google-$ANDROID_API_LEVEL
     # Google Play Services
@@ -22,7 +22,7 @@ android:
     - extra-google-m2repository
     - extra-android-m2repository
     # Specify at least one system image,
-    - sys-img-armeabi-v7a-android-$ANDROID_BUILD_TOOLS_VERSION
+    - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
 
 jdk:
   - oraclejdk8
