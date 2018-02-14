@@ -13,18 +13,18 @@ env:
 jdk:
   - oraclejdk8
 
+before_install:
+  - chmod +x gradlew
+
 before_script:
   # Create and start emulator
   - android list targets
   - jdk_switcher use oraclejdk8
-  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
+  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi armeabi-v7a
   - emulator -avd test -no-skin -no-audio -no-window &
   - adb wait-for-device
   - while [[ `adb shell pm path android` == 'Error'* ]]; do sleep 2; done
   - adb shell input keyevent 82 &
-
-before_install:
-  - chmod +x gradlew
 
 script:
   - ./gradlew build connectedCheck
