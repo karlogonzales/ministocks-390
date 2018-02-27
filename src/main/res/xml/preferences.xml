@@ -75,6 +75,46 @@
                 android:key="Stock10"
                 android:summary="Set symbol"
                 android:title="Stock 10" />
+            <Preference
+                android:key="Stock11"
+                android:summary="Set symbol"
+                android:title="Stock 11" />
+            <Preference
+                android:key="Stock12"
+                android:summary="Set symbol"
+                android:title="Stock 12" />
+            <Preference
+                android:key="Stock13"
+                android:summary="Set symbol"
+                android:title="Stock 13" />
+            <Preference
+                android:key="Stock14"
+                android:summary="Set symbol"
+                android:title="Stock 14" />
+            <Preference
+                android:key="Stock15"
+                android:summary="Set symbol"
+                android:title="Stock 15" />
+            <Preference
+                android:key="Stock16"
+                android:summary="Set symbol"
+                android:title="Stock 16" />
+            <Preference
+                android:key="Stock17"
+                android:summary="Set symbol"
+                android:title="Stock 17" />
+            <Preference
+                android:key="Stock18"
+                android:summary="Set symbol"
+                android:title="Stock 18" />
+            <Preference
+                android:key="Stock19"
+                android:summary="Set symbol"
+                android:title="Stock 19" />
+            <Preference
+                android:key="Stock20"
+                android:summary="Set symbol"
+                android:title="Stock 20" />
         </PreferenceScreen>
         <PreferenceScreen
             android:key="advanced"
