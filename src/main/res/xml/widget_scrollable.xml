@@ -2,9 +2,10 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:initialKeyguardLayout="@layout/widget_scrollable"
     android:initialLayout="@layout/widget_scrollable"
-    android:minHeight="110dp"
-    android:minWidth="180dp"
-    android:previewImage="@drawable/example_appwidget_preview"
+    android:minWidth="250dp"
+    android:minHeight="200dp"
     android:resizeMode="vertical"
-    android:updatePeriodMillis="86400000"
-    android:widgetCategory="home_screen"></appwidget-provider>
+    android:updatePeriodMillis="7200000"
+    android:widgetCategory="home_screen">
+
+</appwidget-provider>

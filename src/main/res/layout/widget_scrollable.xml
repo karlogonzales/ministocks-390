@@ -4,30 +4,28 @@
     android:background="#a6932439"
     android:padding="@dimen/widget_margin">
 
-
-    <TextView
-        android:textColor="#ffffff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/appwidget_text"
-        android:text="text"/>
     <include
+        android:id="@+id/head"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        layout="@layout/widget_scrollable_header" />
+        layout="@layout/widget_scrollable_head" />
 
     <ListView
         android:id="@+id/list_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/head"
+        android:foregroundGravity="center">
 
     </ListView>
+
 
     <include
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
+        android:layout_alignBottom="@+id/list_view"
         layout="@layout/widget_scrollable_add" />
 
 

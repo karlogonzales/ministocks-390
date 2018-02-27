@@ -230,7 +230,7 @@
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget_scrollable_info" />
+                android:resource="@xml/widget_scrollable" />
         </receiver>
     </application>
 
