@@ -435,7 +435,7 @@ class WidgetView {
     }
 
     private void hideUnusedRows(RemoteViews views, int count) {
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 21; i++) {
             int viewId = ReflectionTools.getField("line" + i);
             if (viewId > 0) {
                 views.setViewVisibility(ReflectionTools.getField("line" + i), View.GONE);

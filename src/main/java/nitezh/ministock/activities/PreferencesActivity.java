@@ -168,7 +168,7 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
         // Remove extra stocks
         if (widgetSize == 0 || widgetSize == 1) {
             PreferenceScreen stock_setup = (PreferenceScreen) findPreference("stock_setup");
-            for (int i = 5; i < 11; i++)
+            for (int i = 5; i < 21; i++)
                 removePref(stock_setup, "Stock" + i);
         }
         // Remove extra widget views

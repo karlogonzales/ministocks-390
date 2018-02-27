@@ -118,7 +118,7 @@ public class UserData {
             widget.setWidgetPreferencesFromJson(
                     jsonBackupsForAllWidgets.getJSONObject(backupName));
 
-            Boolean areAllStocksRestored = widget.getSymbolCount() == 10
+            Boolean areAllStocksRestored = widget.getSymbolCount() == 20
                     && !widget.getStock(4).equals("");
 
             InformUserWidgetBackupRestoredAndReloadPreferences(context, areAllStocksRestored);
