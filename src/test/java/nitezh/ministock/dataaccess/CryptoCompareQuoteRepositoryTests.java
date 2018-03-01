@@ -27,23 +27,22 @@ public class CryptoCompareQuoteRepositoryTests {
     @Test
     public void getQuotes(){
         //Arrange
-        List<String> symbols = Arrays.asList("BTC");
+        List<String> symbols = Arrays.asList("BTC", "ETH");
         MockCache mockCache = new MockCache();
 
         // Act
         HashMap<String, StockQuote> stockQuotes = cryptoRepository.getQuotes(mockCache, symbols);
 
         //Assert
-
-        assertEquals(1, stockQuotes.size());
+        assertEquals(2, stockQuotes.size());
 
         StockQuote btcQuote = stockQuotes.get("BTC");
         assertEquals("BTC", btcQuote.getSymbol());
         assertEquals("CCCAGG", btcQuote.getExchange()); //CCCAGG refers to Crypto Compare Aggregate or the aggregate of all exchanges the API gets its price from
 
-//        StockQuote ethQuote = stockQuotes.get("ETH");
-//        assertEquals("ETH", ethQuote.getSymbol());
-//        assertEquals("CCCAGG", ethQuote.getExchange()); //CCCAGG refers to Crypto Compare Aggregate or the aggregate of all exchanges the API gets its price from
+        StockQuote ethQuote = stockQuotes.get("ETH");
+        assertEquals("ETH", ethQuote.getSymbol());
+        assertEquals("CCCAGG", ethQuote.getExchange()); //CCCAGG refers to Crypto Compare Aggregate or the aggregate of all exchanges the API gets its price from
     }
 
     @Test
