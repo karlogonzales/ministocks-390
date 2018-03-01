@@ -43,5 +43,6 @@ dependencies {
 allprojects {
     repositories {
         jcenter()
+        google()
     }
 }
