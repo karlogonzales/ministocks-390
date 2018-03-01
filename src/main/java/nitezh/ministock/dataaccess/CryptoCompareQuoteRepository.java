@@ -2,6 +2,7 @@ package nitezh.ministock.dataaccess;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -24,13 +25,13 @@ public class CryptoCompareQuoteRepository {
         }
         return String.format("%s%s%s", BASE_URL,sQuery, "&tsyms=USD");
     }
-    public JSONArray retrieveQuotesAsJson(Cache cache) throws JSONException {
-        String url = "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=JPY,EUR";
 
+    public JSONObject retrieveQuotesAsJson(Cache cache, List<String> symbols) throws JSONException {
+        String url = this.buildRequestUrl(symbols);
         String data = UrlDataTools.getCachedUrlData(url, cache, 300);
 
         String json = data.replace("//", "").replaceAll("\\\\", "");
 
-        return new JSONArray("[" + json + "]");
+        return new JSONObject(json);
     }
 }

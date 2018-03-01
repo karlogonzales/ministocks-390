@@ -29,11 +29,4 @@ public class CryptoCompareQuoteRepositoryTests {
 
         assertEquals(expected, this.cryptoRepository.buildRequestUrl(symbols));
     }
-
-    @Test
-    public void getQuotesAsJson() throws JSONException {
-        JSONArray stockQuotes = cryptoRepository.retrieveQuotesAsJson(new MockCache());
-
-        assertNotNull(stockQuotes);
-    }
 }
