@@ -58,8 +58,12 @@ public class CryptoCompareQuoteRepositoryTests {
         MockCache mockCache1 = new MockCache();
         MockCache mockCache2 = new MockCache();
         List<String> symbols = Arrays.asList("BTC");
-        JSONObject responseTest = new JSONObject(UrlDataTools.getCachedUrlData("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD",mockCache1,300));
+        JSONObject responseTestHardcodedString = new JSONObject(UrlDataTools.getCachedUrlData("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD",mockCache1,300));
+        JSONObject responseTestUsingClassMethod = cryptoRepository.retrieveQuotesAsJson(mockCache2,symbols);
 
-        assertEquals(responseTest.toString(),cryptoRepository.retrieveQuotesAsJson(mockCache2,symbols).toString());
+        assertEquals(responseTestHardcodedString.getJSONObject("RAW").getJSONObject("BTC").getJSONObject("USD").get("PRICE"),responseTestUsingClassMethod.getJSONObject("RAW").getJSONObject("BTC").getJSONObject("USD").get("PRICE"));
+
+
     }
+
 }
