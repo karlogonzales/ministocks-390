@@ -2,6 +2,7 @@ package nitezh.ministock.dataaccess;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,6 +27,9 @@ public class CryptoCompareQuoteRepositoryTests {
 
     @Test
     public void getQuotes(){
+        //Skipif
+        Assume.assumeTrue(System.getenv("TRAVIS_CI") == null);
+
         //Arrange
         List<String> symbols = Arrays.asList("BTC", "ETH");
         MockCache mockCache = new MockCache();
