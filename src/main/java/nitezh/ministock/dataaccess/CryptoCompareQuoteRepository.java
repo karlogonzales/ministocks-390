@@ -9,9 +9,9 @@ import nitezh.ministock.utils.Cache;
 import nitezh.ministock.utils.UrlDataTools;
 
 public class CryptoCompareQuoteRepository {
-    private static final String BASE_URL = "https://min-api.cryptocompare.com/data/pricemulti?";
+    private static final String BASE_URL = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=";
 
-    private String buildRequestUrl(List<String> symbols){
+    public String buildRequestUrl(List<String> symbols){
         StringBuilder sQuery = new StringBuilder();
 
         for (String s : symbols){
