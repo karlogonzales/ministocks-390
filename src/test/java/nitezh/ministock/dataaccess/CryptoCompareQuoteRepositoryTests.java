@@ -34,7 +34,8 @@ public class CryptoCompareQuoteRepositoryTests {
         HashMap<String, StockQuote> stockQuotes = cryptoRepository.getQuotes(mockCache, symbols);
 
         //Assert
-        assertEquals(2, stockQuotes.size());
+
+        assertEquals(1, stockQuotes.size());
 
         StockQuote btcQuote = stockQuotes.get("BTC");
         assertEquals("BTC", btcQuote.getSymbol());
