@@ -202,13 +202,17 @@ class AndroidWidget implements Widget {
 
     @Override
     public int getSymbolCount() {
-        int size = this.getSize();
-        int count = 0;
-        if (size == 0 || size == 1) {
-            count = 4;
-        } else if (size == 2 || size == 3) {
-            count = 20;
-        }
+
+        // By commenting out the following we disable the limiting of stocks that appear on the short widgets
+//        int size = this.getSize();
+//        int count = 0;
+//        if (size == 0 || size == 1) {
+//            count = 4;
+//        } else if (size == 2 || size == 3) {
+//            count = 20;
+//        }
+//
+        int count = 20;
         return count;
     }
 

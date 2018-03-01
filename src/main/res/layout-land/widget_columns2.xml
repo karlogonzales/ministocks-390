@@ -147,14 +147,115 @@
             <TextView android:id="@+id/text93" style="@style/StockChange_land"/>
         </LinearLayout>
 
+
         <LinearLayout
-                android:id="@+id/line10"
-                android:orientation="horizontal"
-                style="@style/StockLine">
+            android:id="@+id/line10"
+            android:orientation="horizontal"
+            style="@style/StockLine">
 
             <TextView android:id="@+id/text101" style="@style/StockSymbol_land"/>
             <TextView android:id="@+id/text102" style="@style/StockPrice_land"/>
             <TextView android:id="@+id/text103" style="@style/StockChange_land"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/line11"
+                android:orientation="horizontal"
+                style="@style/StockLine">
+
+            <TextView android:id="@+id/text111" style="@style/StockSymbol_land"/>
+            <TextView android:id="@+id/text112" style="@style/StockPrice_land"/>
+            <TextView android:id="@+id/text113" style="@style/StockChange_land"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/line12"
+            android:orientation="horizontal"
+            style="@style/StockLine">
+
+            <TextView android:id="@+id/text121" style="@style/StockSymbol_land"/>
+            <TextView android:id="@+id/text122" style="@style/StockPrice_land"/>
+            <TextView android:id="@+id/text123" style="@style/StockChange_land"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/line13"
+            android:orientation="horizontal"
+            style="@style/StockLine">
+
+            <TextView android:id="@+id/text131" style="@style/StockSymbol_land"/>
+            <TextView android:id="@+id/text132" style="@style/StockPrice_land"/>
+            <TextView android:id="@+id/text133" style="@style/StockChange_land"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/line14"
+            android:orientation="horizontal"
+            style="@style/StockLine">
+
+            <TextView android:id="@+id/text141" style="@style/StockSymbol_land"/>
+            <TextView android:id="@+id/text142" style="@style/StockPrice_land"/>
+            <TextView android:id="@+id/text143" style="@style/StockChange_land"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/line15"
+            android:orientation="horizontal"
+            style="@style/StockLine">
+
+            <TextView android:id="@+id/text151" style="@style/StockSymbol_land"/>
+            <TextView android:id="@+id/text152" style="@style/StockPrice_land"/>
+            <TextView android:id="@+id/text153" style="@style/StockChange_land"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/line16"
+            android:orientation="horizontal"
+            style="@style/StockLine">
+
+            <TextView android:id="@+id/text161" style="@style/StockSymbol_land"/>
+            <TextView android:id="@+id/text162" style="@style/StockPrice_land"/>
+            <TextView android:id="@+id/text163" style="@style/StockChange_land"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/line17"
+            android:orientation="horizontal"
+            style="@style/StockLine">
+
+            <TextView android:id="@+id/text171" style="@style/StockSymbol_land"/>
+            <TextView android:id="@+id/text172" style="@style/StockPrice_land"/>
+            <TextView android:id="@+id/text173" style="@style/StockChange_land"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/line18"
+            android:orientation="horizontal"
+            style="@style/StockLine">
+
+            <TextView android:id="@+id/text181" style="@style/StockSymbol_land"/>
+            <TextView android:id="@+id/text182" style="@style/StockPrice_land"/>
+            <TextView android:id="@+id/text183" style="@style/StockChange_land"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/line19"
+            android:orientation="horizontal"
+            style="@style/StockLine">
+
+            <TextView android:id="@+id/text191" style="@style/StockSymbol_land"/>
+            <TextView android:id="@+id/text192" style="@style/StockPrice_land"/>
+            <TextView android:id="@+id/text193" style="@style/StockChange_land"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/line20"
+            android:orientation="horizontal"
+            style="@style/StockLine">
+
+            <TextView android:id="@+id/text201" style="@style/StockSymbol_land"/>
+            <TextView android:id="@+id/text202" style="@style/StockPrice_land"/>
+            <TextView android:id="@+id/text203" style="@style/StockChange_land"/>
         </LinearLayout>
 
         <LinearLayout
