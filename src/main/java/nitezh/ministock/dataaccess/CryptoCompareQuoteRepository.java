@@ -1,6 +1,5 @@
 package nitezh.ministock.dataaccess;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,14 +25,16 @@ public class CryptoCompareQuoteRepository {
             for (String symbol : symbols) {
                 jsonStock = jsonResponse.getJSONObject(symbol).getJSONObject("USD");
                 StockQuote quote = new StockQuote(
+                        jsonStock.optString("FROMSYMBOL"),
                         jsonStock.optString("PRICE"),
                         jsonStock.optString("CHANGE24HOUR"),
                         jsonStock.optString("CHANGEPCT24HOUR"),
                         jsonStock.optString("MARKET"),
                         jsonStock.optString("VOLUMEDAY"),
                         jsonStock.optString("FROMSYMBOL"),
-                        jsonStock.optString("JSON24HOUR"),
-                        Locale.US);
+                        Locale.US
+
+                );
 
                 quotes.put(quote.getSymbol(), quote);
             }
