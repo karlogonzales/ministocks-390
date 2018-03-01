@@ -28,9 +28,10 @@ public class CryptoCompareQuoteRepositoryTests {
     public void getQuotes(){
         //Arrange
         List<String> symbols = Arrays.asList("BTC", "ETH");
+        MockCache mockCache = new MockCache();
 
         // Act
-        HashMap<String, StockQuote> stockQuotes = cryptoRepository.getQuotes(new MockCache(), symbols);
+        HashMap<String, StockQuote> stockQuotes = cryptoRepository.getQuotes(mockCache, symbols);
 
         //Assert
         assertEquals(2, stockQuotes.size());
@@ -55,9 +56,10 @@ public class CryptoCompareQuoteRepositoryTests {
     @Test
     public void responseTest() throws JSONException {
         MockCache mockCache1 = new MockCache();
+        MockCache mockCache2 = new MockCache();
         List<String> symbols = Arrays.asList("BTC");
         JSONObject responseTest = new JSONObject(UrlDataTools.getCachedUrlData("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD",mockCache1,300));
 
-        assertEquals(responseTest.toString(),cryptoRepository.retrieveQuotesAsJson(new MockCache(),symbols).toString());
+        assertEquals(responseTest.toString(),cryptoRepository.retrieveQuotesAsJson(mockCache2,symbols).toString());
     }
 }
