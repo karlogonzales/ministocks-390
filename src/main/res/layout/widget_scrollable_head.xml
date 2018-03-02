@@ -4,10 +4,25 @@
     android:background="#ffffff">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:textColor="#111111"
-        android:gravity="center"
-        android:text="Scrollable"/>
+    android:id="@+id/textView"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:textSize="30sp"
+    android:gravity="center_vertical"
+    android:text="please work"
+    android:textColor="#111111" />
+
+
+    <Button
+        android:id="@+id/scroll_add_btn"
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_vertical"
+        android:text="ADD"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>
