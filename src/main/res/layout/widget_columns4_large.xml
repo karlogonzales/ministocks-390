@@ -92,6 +92,18 @@
             <TextView
                 android:id="@+id/text15"
                 style="@style/StockWideChange_large" />
+
+            <TextView
+                android:id="@+id/text16"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text17"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text18"
+                style="@style/StockWideChange" />
         </LinearLayout>
 
         <LinearLayout
@@ -118,6 +130,18 @@
             <TextView
                 android:id="@+id/text25"
                 style="@style/StockWideChange_large" />
+
+            <TextView
+                android:id="@+id/text26"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text27"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text28"
+                style="@style/StockWideChange" />
         </LinearLayout>
 
         <LinearLayout
@@ -144,6 +168,18 @@
             <TextView
                 android:id="@+id/text35"
                 style="@style/StockWideChange_large" />
+
+            <TextView
+                android:id="@+id/text36"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text37"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text38"
+                style="@style/StockWideChange" />
         </LinearLayout>
 
         <LinearLayout
@@ -170,6 +206,18 @@
             <TextView
                 android:id="@+id/text45"
                 style="@style/StockWideChange_large" />
+
+            <TextView
+                android:id="@+id/text46"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text47"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text48"
+                style="@style/StockWideChange" />
         </LinearLayout>
 
         <LinearLayout
@@ -196,6 +244,18 @@
             <TextView
                 android:id="@+id/text55"
                 style="@style/StockWideChange_large" />
+
+            <TextView
+                android:id="@+id/text56"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text57"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text58"
+                style="@style/StockWideChange" />
         </LinearLayout>
 
         <LinearLayout
@@ -222,6 +282,18 @@
             <TextView
                 android:id="@+id/text65"
                 style="@style/StockWideChange_large" />
+
+            <TextView
+                android:id="@+id/text66"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text67"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text68"
+                style="@style/StockWideChange" />
         </LinearLayout>
 
         <LinearLayout
@@ -248,6 +320,18 @@
             <TextView
                 android:id="@+id/text75"
                 style="@style/StockWideChange_large" />
+
+            <TextView
+                android:id="@+id/text76"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text77"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text78"
+                style="@style/StockWideChange" />
         </LinearLayout>
 
         <LinearLayout
@@ -274,6 +358,18 @@
             <TextView
                 android:id="@+id/text85"
                 style="@style/StockWideChange_large" />
+
+            <TextView
+                android:id="@+id/text86"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text87"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text88"
+                style="@style/StockWideChange" />
         </LinearLayout>
 
         <LinearLayout
@@ -300,6 +396,18 @@
             <TextView
                 android:id="@+id/text95"
                 style="@style/StockWideChange_large" />
+
+            <TextView
+                android:id="@+id/text96"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text97"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text98"
+                style="@style/StockWideChange" />
         </LinearLayout>
 
         <LinearLayout
@@ -326,6 +434,389 @@
             <TextView
                 android:id="@+id/text105"
                 style="@style/StockWideChange_large" />
+
+            <TextView
+                android:id="@+id/text106"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text107"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text108"
+                style="@style/StockWideChange" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/line11"
+            style="@style/StockLine"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text111"
+                style="@style/StockName" />
+
+            <TextView
+                android:id="@+id/text112"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text113"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text114"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text115"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text116"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text117"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text118"
+                style="@style/StockWideChange" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/line12"
+            style="@style/StockLine"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text121"
+                style="@style/StockName" />
+
+            <TextView
+                android:id="@+id/text122"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text123"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text124"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text125"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text126"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text127"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text128"
+                style="@style/StockWideChange" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/line13"
+            style="@style/StockLine"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text131"
+                style="@style/StockName" />
+
+            <TextView
+                android:id="@+id/text132"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text133"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text134"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text135"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text136"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text137"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text138"
+                style="@style/StockWideChange" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/line14"
+            style="@style/StockLine"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text141"
+                style="@style/StockName" />
+
+            <TextView
+                android:id="@+id/text142"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text143"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text144"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text145"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text146"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text147"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text148"
+                style="@style/StockWideChange" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/line15"
+            style="@style/StockLine"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text151"
+                style="@style/StockName" />
+
+            <TextView
+                android:id="@+id/text152"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text153"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text154"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text155"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text156"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text157"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text158"
+                style="@style/StockWideChange" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/line16"
+            style="@style/StockLine"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text161"
+                style="@style/StockName" />
+
+            <TextView
+                android:id="@+id/text162"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text163"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text164"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text165"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text166"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text167"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text168"
+                style="@style/StockWideChange" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/line17"
+            style="@style/StockLine"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text171"
+                style="@style/StockName" />
+
+            <TextView
+                android:id="@+id/text172"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text173"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text174"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text175"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text176"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text177"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text178"
+                style="@style/StockWideChange" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/line18"
+            style="@style/StockLine"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text181"
+                style="@style/StockName" />
+
+            <TextView
+                android:id="@+id/text182"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text183"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text184"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text185"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text186"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text187"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text188"
+                style="@style/StockWideChange" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/line19"
+            style="@style/StockLine"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text191"
+                style="@style/StockName" />
+
+            <TextView
+                android:id="@+id/text192"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text193"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text194"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text195"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text196"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text197"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text198"
+                style="@style/StockWideChange" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/line20"
+            style="@style/StockLine"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text201"
+                style="@style/StockName" />
+
+            <TextView
+                android:id="@+id/text202"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text203"
+                style="@style/StockPrice" />
+
+            <TextView
+                android:id="@+id/text204"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text205"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text206"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text207"
+                style="@style/StockWideChange" />
+
+            <TextView
+                android:id="@+id/text208"
+                style="@style/StockWideChange" />
         </LinearLayout>
 
         <LinearLayout

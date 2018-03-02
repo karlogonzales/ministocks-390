@@ -195,7 +195,7 @@ class WidgetView {
                 break;
         }
 
-           return span;
+        return span;
     }
 
     public void setOnClickPendingIntents() {
@@ -435,7 +435,7 @@ class WidgetView {
     }
 
     private void hideUnusedRows(RemoteViews views, int count) {
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 21; i++) {
             int viewId = ReflectionTools.getField("line" + i);
             if (viewId > 0) {
                 views.setViewVisibility(ReflectionTools.getField("line" + i), View.GONE);
@@ -507,6 +507,9 @@ class WidgetView {
                 setStockRowItemText(lineNo, 3, rowInfo.getVolume());
                 setStockRowItemText(lineNo, 4, rowInfo.getStockInfoExtra());
                 setStockRowItemText(lineNo, 5, rowInfo.getStockInfo());
+                setStockRowItemText(lineNo, 6,"1");
+                setStockRowItemText(lineNo, 7, "2");
+                setStockRowItemText(lineNo, 8, "3");
             }
 
             // Colours
