@@ -1,0 +1,31 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#a6932439"
+    android:padding="@dimen/widget_margin"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/head"
+        layout="@layout/widget_scrollable_head"
+        android:layout_width="match_parent"
+
+        android:layout_height="50dp" />
+
+
+    <ListView
+        android:id="@+id/list_view1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        >
+
+    </ListView>
+
+
+
+
+
+
+</LinearLayout>

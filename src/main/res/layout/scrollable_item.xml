@@ -3,18 +3,23 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/test__hanna_text1"
+        style="@style/StockName" />
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:text="scrollable item"/>
     <TextView
-        android:id="@+id/scrollable_item"
-        android:layout_marginLeft="205dp"
-        android:layout_alignParentStart="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:text="num"/>
+        android:id="@+id/test__hanna_text2"
+        style="@style/StockPrice" />
+
+    <TextView
+        android:id="@+id/test__hanna_text3"
+        style="@style/StockPrice" />
+
+    <TextView
+        android:id="@+id/test__hanna_text4"
+        style="@style/StockWideChange" />
+
+    <TextView
+        android:id="@+id/test__hanna_text5"
+        style="@style/StockWideChange" />
 
 </RelativeLayout>
