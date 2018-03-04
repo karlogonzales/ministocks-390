@@ -8,9 +8,9 @@ import android.net.Uri;
 import android.widget.RemoteViews;
 
 import nitezh.ministock.R;
-import nitezh.ministock.utils.WidgetService;
+import nitezh.ministock.activities.widget.WidgetProviderBase;
 
-public class WidgetProviderScrollable extends AppWidgetProvider {
+public class WidgetProviderScrollable extends WidgetProviderBase {
 
 	/* 
 	 * this method is called every 30 mins as specified on widgetinfo.xml
@@ -34,7 +34,7 @@ public class WidgetProviderScrollable extends AppWidgetProvider {
 
 		//which layout to show on widget
 		RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
-				R.layout.widget_layout);
+				R.layout.widget_scroll_layout);
 		
 		//RemoteViews Service needed to provide adapter for ListView
 		Intent svcIntent = new Intent(context, WidgetService.class);
@@ -50,5 +50,7 @@ public class WidgetProviderScrollable extends AppWidgetProvider {
 		remoteViews.setEmptyView(R.id.listViewWidget, R.id.empty_view);
 		return remoteViews;
 	}
+
+
 
 }
