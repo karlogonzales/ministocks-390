@@ -6,9 +6,15 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService.RemoteViewsFactory;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import nitezh.ministock.R;
+import nitezh.ministock.dataaccess.CryptoCompareQuoteRepository;
+import nitezh.ministock.domain.StockQuote;
 
 /**
  * If you are familiar with Adapter of ListView,this is the same as adapter
@@ -19,6 +25,7 @@ public class ListProvider implements RemoteViewsFactory {
 	private ArrayList<ListItem> listItemList = new ArrayList<ListItem>();
 	private Context context = null;
 	private int appWidgetId;
+	private Cache appCache;
 
 	public ListProvider(Context context, Intent intent) {
 		this.context = context;
@@ -29,11 +36,14 @@ public class ListProvider implements RemoteViewsFactory {
 	}
 
 	private void populateListItem() {
+		List<String> stocks = new ArrayList<>();
+		stocks.add("BTC");
+		CryptoCompareQuoteRepository cryptoCompareQuoteRepository = new CryptoCompareQuoteRepository();
+		HashMap<String, StockQuote> stockQuote = cryptoCompareQuoteRepository.getQuotes(this.appCache,stocks);
 		for (int i = 0; i < 10; i++) {
 			ListItem listItem = new ListItem();
-			listItem.heading = "Heading" + i;
-			listItem.content = i
-					+ " This is the content of the app widget listview.Nice content though";
+			listItem.heading = stockQuote.get("BTC").getSymbol();
+			listItem.content = stockQuote.get("BTC").getPrice();
 			listItemList.add(listItem);
 		}
 

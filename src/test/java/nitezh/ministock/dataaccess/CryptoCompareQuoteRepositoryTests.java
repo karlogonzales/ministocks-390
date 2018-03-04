@@ -52,7 +52,7 @@ public class CryptoCompareQuoteRepositoryTests {
     @Test
     public void buildRequestUrl(){
         List<String> symbols = Arrays.asList("BTC", "ETH");
-        String expected = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH&tsyms=USD";
+        String expected = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH&tsyms=CAD";
 
         assertEquals(expected, this.cryptoRepository.buildRequestUrl(symbols));
     }
