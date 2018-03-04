@@ -10,7 +10,4 @@
         android:textSize="15sp"
         android:id="@+id/widget_left"
         />
-    
-
-
 </LinearLayout>
