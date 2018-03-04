@@ -12,7 +12,13 @@ jdk:
 before_install:
   - chmod +x gradlew
 
+addons:
+  sonarcloud:
+    organization: "lattakia-github"
+    token:
+      secure: 4f3c14c16164f14f9d53dc08b868fe5634d4d709
 script:
+  - sonar-scanner
   - ./gradlew build connectedCheck
 
 notifications:
