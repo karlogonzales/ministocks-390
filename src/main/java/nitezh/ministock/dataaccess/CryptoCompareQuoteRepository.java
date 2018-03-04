@@ -23,7 +23,7 @@ public class CryptoCompareQuoteRepository {
             jsonResponse = retrieveQuotesAsJson(cache, symbols).getJSONObject("RAW");
 
             for (String symbol : symbols) {
-                jsonStock = jsonResponse.getJSONObject(symbol).getJSONObject("USD");
+                jsonStock = jsonResponse.getJSONObject(symbol).getJSONObject("CAD");
                 StockQuote quote = new StockQuote(
                         jsonStock.optString("FROMSYMBOL"),
                         jsonStock.optString("PRICE"),
@@ -56,7 +56,7 @@ public class CryptoCompareQuoteRepository {
                 sQuery.append(s);
             }
         }
-        return String.format("%s%s%s", BASE_URL,sQuery, "&tsyms=USD");
+        return String.format("%s%s%s", BASE_URL,sQuery, "&tsyms=CAD");
     }
 
     public JSONObject retrieveQuotesAsJson(Cache cache, List<String> symbols) throws JSONException {
