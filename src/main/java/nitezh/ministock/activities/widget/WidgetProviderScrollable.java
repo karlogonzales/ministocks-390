@@ -1,4 +1,4 @@
-package nitezh.ministock.utils;
+package nitezh.ministock.activities.widget;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -9,6 +9,7 @@ import android.widget.RemoteViews;
 
 import nitezh.ministock.R;
 import nitezh.ministock.activities.widget.WidgetProviderBase;
+import nitezh.ministock.utils.WidgetService;
 
 public class WidgetProviderScrollable extends WidgetProviderBase {
 

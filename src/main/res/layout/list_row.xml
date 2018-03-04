@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="@android:color/black" >
+    android:src="@drawable/ministock_bg_transparent68" >
 
     <ImageView
         android:id="@+id/imageView"
