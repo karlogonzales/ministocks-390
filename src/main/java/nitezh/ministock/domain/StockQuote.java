@@ -185,4 +185,17 @@ public class StockQuote {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "StockQuote{" +
+                "symbol='" + symbol + '\'' +
+                ", price='" + price + '\'' +
+                ", change='" + change + '\'' +
+                ", percent='" + percent + '\'' +
+                ", exchange='" + exchange + '\'' +
+                ", volume='" + volume + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
