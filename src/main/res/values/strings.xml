@@ -149,4 +149,5 @@
     <string name="widget_loading_text">loading data…</string>
     <string name="appwidget_text">Resizable</string>
     <string name="add_widget">Add widget</string>
+    <string name="empty_string">Empty View</string>
 </resources>
