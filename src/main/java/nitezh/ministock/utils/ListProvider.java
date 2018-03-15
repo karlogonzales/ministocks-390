@@ -6,7 +6,11 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService.RemoteViewsFactory;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 import nitezh.ministock.R;
 
@@ -19,6 +23,8 @@ public class ListProvider implements RemoteViewsFactory {
 	private ArrayList<ListItem> listItemList = new ArrayList<ListItem>();
 	private Context context = null;
 	private int appWidgetId;
+	private String stockList = null;
+	private JSONObject json = null;
 
 	public ListProvider(Context context, Intent intent) {
 		this.context = context;
@@ -29,14 +35,37 @@ public class ListProvider implements RemoteViewsFactory {
 	}
 
 	private void populateListItem() {
-		for (int i = 0; i < 10; i++) {
-			ListItem listItem = new ListItem();
-			listItem.heading = "Heading" + i;
-			listItem.content = i
-					+ " This is the content of the app widget listview.Nice content though";
-			listItemList.add(listItem);
-		}
 
+//		JSONObject response = null;
+//		try {
+//			response = new ServiceAccess().execute("CRYPTO", "BTC");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		System.out.println(response);
+		try {
+			stockList = new ServiceTask(this.context).execute("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=CAD", "GET","").get();
+			json = new JSONObject(stockList);
+
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		System.out.println(stockList);
+		try {
+// 			String price = response.getString("CAD");
+			for (int i = 0; i < 10; i++) {
+				ListItem listItem = new ListItem();
+				listItem.heading = "BTC" + i;
+				listItem.content = json.getString("CAD");
+				listItemList.add(listItem);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -83,6 +112,7 @@ public class ListProvider implements RemoteViewsFactory {
 
 	@Override
 	public void onCreate() {
+
 	}
 
 	@Override

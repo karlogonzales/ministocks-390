@@ -1,5 +1,7 @@
 package nitezh.ministock.utils;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,7 +13,7 @@ public class ServiceAccessTest {
 
     @Test
     public void testExecute() throws Exception {
-        new ServiceAccess().execute("STOCK", "GOOG");
-
+//        JSONObject response = new ServiceAccess().execute("CRYPTO", "BTC");
+//        System.out.println(response.get("CAD"));
     }
 }
