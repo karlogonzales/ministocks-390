@@ -10,7 +10,7 @@ public class ConfigureActivityScrollable extends ConfigureActivityBase {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        mWidgetSize = 2;
+        mWidgetSize = 4;
         super.onCreate(savedInstanceState);
     }
 }

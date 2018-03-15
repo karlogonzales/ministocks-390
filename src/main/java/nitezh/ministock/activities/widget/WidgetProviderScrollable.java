@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.RemoteViews;
 import nitezh.ministock.R;
+import nitezh.ministock.activities.MenuScrollableActivity;
 import nitezh.ministock.activities.PreferencesActivity;
 import nitezh.ministock.utils.WidgetService;
 
@@ -35,7 +36,21 @@ public class WidgetProviderScrollable extends WidgetProviderBase {
 			context.startActivity(intent);
 			 */
 
-			Intent intent = new Intent(context, PreferencesActivity.class);
+			//menu already implemented
+			Intent edit_intent = new Intent(context, PreferencesActivity.class);
+			edit_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			edit_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+			PendingIntent edit_pending = PendingIntent.getActivity(context, 0,
+					edit_intent, 0);
+			RemoteViews edit_views = new RemoteViews(context.getPackageName(),
+					R.layout.widget_scroll_layout);
+
+			edit_views.setOnClickPendingIntent(R.id.edit, edit_pending);
+			appWidgetManager.updateAppWidget(appWidgetIds[i], edit_views);
+
+			//custom menu
+			Intent intent = new Intent(context, MenuScrollableActivity.class);
 			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
@@ -44,9 +59,10 @@ public class WidgetProviderScrollable extends WidgetProviderBase {
 			RemoteViews views = new RemoteViews(context.getPackageName(),
 					R.layout.widget_scroll_layout);
 
-			views.setOnClickPendingIntent(R.id.edit, pending);
-
+			views.setOnClickPendingIntent(R.id.custom, pending);
 			appWidgetManager.updateAppWidget(appWidgetIds[i], views);
+
+
 		}
 		super.onUpdate(context, appWidgetManager, appWidgetIds);
 

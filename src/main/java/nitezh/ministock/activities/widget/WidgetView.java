@@ -107,7 +107,13 @@ class WidgetView {
             } else {
                 views = new RemoteViews(packageName, R.layout.widget_2x4);
             }
-        } else {
+        }
+        //added size = 4 for scrollable widget
+        //this is for adding functionality to the scrollable widget
+        else if (widget.getSize() == 4) {
+                views = new RemoteViews(packageName, R.layout.widget_scroll_layout);
+
+        }else {
             if (useLargeFont) {
                 views = new RemoteViews(packageName, R.layout.widget_1x2_large);
             } else {
