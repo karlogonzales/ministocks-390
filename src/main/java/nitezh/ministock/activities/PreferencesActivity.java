@@ -179,6 +179,7 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
             removePref(widget_views, "show_profit_daily_change");
             removePref(widget_views, "show_profit_change");
         }
+
         // Hide Feedback option if not relevant
         String install_date = getAppPreferences().getString("install_date", null);
         if (DateTools.elapsedDays(install_date) < 30)

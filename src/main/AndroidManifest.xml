@@ -234,7 +234,8 @@
                 android:resource="@xml/widget_resizable2_info" />
         </receiver>
 
-        <receiver android:name=".activities.widget.WidgetProviderScrollable" >
+        <receiver android:name=".activities.widget.WidgetProviderScrollable"
+            android:label="Scrollable">
             <intent-filter>
 
                 <!-- This widget provider receives broadcast with following action name or simply onUpdate of AppWidgetProvider is called -->
