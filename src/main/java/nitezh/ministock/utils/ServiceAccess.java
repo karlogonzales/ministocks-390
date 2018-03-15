@@ -23,24 +23,16 @@ public class ServiceAccess{
 //
 //    public String cryptoURLStringBuilder(String crypto){
 //        return baseURL+ "function=DIGITAL_CURRENCY_INTRADAY&symbol=" + crypto + "&market=CAD&apikey=" +apiKey;
+//
+//    https://api.iextrading.com/1.0/stock/goog/price
 //    }
 
-    public String execute(String target,String method, String urlParameters) throws Exception{
+    public String execute(String target,String method) throws Exception{
 
             OkHttpClient client = new OkHttpClient();
 
             String jsonData = "";
 
-            if (method.equals("STOCK")) {
-                Request request = new Request.Builder()
-                        .url(target)
-                        .get()
-                        .addHeader("content-type", "application/json")
-                        .addHeader("cache-control", "no-cache")
-                        .build();
-                Response response = client.newCall(request).execute();
-                jsonData = response.body().string();
-            } else
             if (method.equals("GET")) {
                 Request request = new Request.Builder()
                         .url(target)

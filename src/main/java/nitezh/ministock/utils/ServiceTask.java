@@ -27,7 +27,7 @@ public class ServiceTask extends AsyncTask<String, String, String> {
         try {
 
 
-            return  new ServiceAccess().execute(data[0],data[1],data[2]);
+            return  new ServiceAccess().execute(data[0],data[1]);
 
         }
 

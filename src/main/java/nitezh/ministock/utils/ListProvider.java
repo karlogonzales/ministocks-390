@@ -9,6 +9,7 @@ import android.widget.RemoteViewsService.RemoteViewsFactory;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
@@ -23,8 +24,8 @@ public class ListProvider implements RemoteViewsFactory {
 	private ArrayList<ListItem> listItemList = new ArrayList<ListItem>();
 	private Context context = null;
 	private int appWidgetId;
-	private String stockList = null;
 	private JSONObject json = null;
+	private String[] stockList = {"BTC", "ETH", "GOOG", "AAPL", "TSLA", "GM", "NFLX", "DIS", "TWTR", "PYPL", "FEYE", "FB", "BABA"};
 
 	public ListProvider(Context context, Intent intent) {
 		this.context = context;
@@ -34,35 +35,30 @@ public class ListProvider implements RemoteViewsFactory {
 		populateListItem();
 	}
 
+	public String stockURLStringBuilder(String stock) {
+		return "https:api.iextrading.com/1.0/stock/" + stock + "/price";
+	}
+
+	public String cryptoURLStringBuilder(String crypto) {
+        return "https://min-api.cryptocompare.com/data/price?fsym=" + crypto + "&tsyms=CAD";
+    }
+
+
 	private void populateListItem() {
-
-//		JSONObject response = null;
-//		try {
-//			response = new ServiceAccess().execute("CRYPTO", "BTC");
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		System.out.println(response);
-		try {
-			stockList = new ServiceTask(this.context).execute("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=CAD", "GET","").get();
-			json = new JSONObject(stockList);
-
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			e.printStackTrace();
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
 		System.out.println(stockList);
 		try {
-// 			String price = response.getString("CAD");
-			for (int i = 0; i < 10; i++) {
-				ListItem listItem = new ListItem();
-				listItem.heading = "BTC" + i;
-				listItem.content = json.getString("CAD");
-				listItemList.add(listItem);
-			}
+            for (String stock: stockList) {
+                ListItem listItem = new ListItem();
+                listItem.heading = stock;
+
+                if (stock.equals("BTC") || stock.equals("ETH")) {
+
+                    listItem.content = new JSONObject(new ServiceTask(this.context).execute(cryptoURLStringBuilder(stock), "GET", "").get()).getString("CAD");
+                }else
+                    listItem.content = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
+
+                listItemList.add(listItem);
+            }
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
