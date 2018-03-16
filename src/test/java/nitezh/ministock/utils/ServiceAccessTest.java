@@ -26,17 +26,17 @@ public class ServiceAccessTest extends TestCase {
         }
     }
 
-    public void testResponse(){
-        Assume.assumeTrue(System.getenv("TRAVIS_CI") == null);
-
-        try {
-            ServiceAccess serviceAccess = new ServiceAccess();
-
-            String res = serviceAccess.execute("https:api.iextrading.com/1.0/stock/GOOG/price", "GET");
-
-            assertEquals(res.isEmpty(), false);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    public void testResponse(){
+//        Assume.assumeTrue(System.getenv("TRAVIS_CI") == null);
+//
+//        try {
+//            ServiceAccess serviceAccess = new ServiceAccess();
+//
+//            String res = serviceAccess.execute("https:api.iextrading.com/1.0/stock/GOOG/price", "GET");
+//
+//            assertEquals(res.isEmpty(), false);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
