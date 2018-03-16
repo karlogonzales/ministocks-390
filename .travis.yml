@@ -28,6 +28,8 @@ jobs:
   include:
     - stage: build
       script: ./gradlew build
+    - stage: test
+      script: ./gradlew test
 
 notifications:
   slack:
