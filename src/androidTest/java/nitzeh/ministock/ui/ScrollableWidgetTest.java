@@ -4,14 +4,13 @@ import android.os.Bundle;
 import android.support.test.filters.SdkSuppress;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.test.runner.AndroidJUnitRunner;
-import android.support.test.uiautomator.By;
 import android.support.test.uiautomator.UiDevice;
 import android.support.test.uiautomator.UiObject;
-import android.support.test.uiautomator.UiObject2;
 import android.support.test.uiautomator.UiObjectNotFoundException;
 import android.support.test.uiautomator.UiScrollable;
 import android.support.test.uiautomator.UiSelector;
 
+import org.junit.Assume;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -40,6 +39,8 @@ public class ScrollableWidgetTest extends AndroidJUnitRunner{
      */
     @Test
     public void searchForResizeableTest() throws InterruptedException, UiObjectNotFoundException {
+        //Skipif
+        Assume.assumeTrue(System.getenv("TRAVIS_CI") == null);
 
         // Initialize UiDevice instance
         mDevice = UiDevice.getInstance(getInstrumentation());
@@ -60,6 +61,9 @@ public class ScrollableWidgetTest extends AndroidJUnitRunner{
 
     @Test
     public void defaultStockListTest() throws UiObjectNotFoundException {
+        //Skipif
+        Assume.assumeTrue(System.getenv("TRAVIS_CI") == null);
+
         // Initialize UiDevice instance
                 mDevice = UiDevice.getInstance(getInstrumentation());
 
@@ -72,15 +76,24 @@ public class ScrollableWidgetTest extends AndroidJUnitRunner{
                 .packageName("nitezh.ministock"));
 
         scrollableStocks.setAsVerticalList();
-        scrollableStocks.scrollToBeginning(50);
         int maxSearchSwipes = scrollableStocks.getMaxSearchSwipes();
+        UiObject stockObject = null;
 
         for (String stock : defaultStocks){
-            try {
-                UiObject stockObject = scrollableStocks.getChild(new UiSelector().text(stock));
-                stockObject.click();
-            } catch (UiObjectNotFoundException e) {
-                fail("The stock " + stock + " could not be found in the default developer stock list.");
+            scrollableStocks.scrollToBeginning(10);
+            for (int i =0; i<maxSearchSwipes; i++){
+                stockObject = scrollableStocks.getChild(new UiSelector().text(stock));
+                try {
+                    stockObject.click();
+                    break; //no exception was caught so stock has been found.
+                } catch (UiObjectNotFoundException e) {
+                    if (i == maxSearchSwipes - 1){
+                        fail();
+                    } else {
+                        scrollableStocks.scrollForward();
+                        continue;
+                    }
+                }
             }
         }
     }
