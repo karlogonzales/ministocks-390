@@ -6,7 +6,12 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService.RemoteViewsFactory;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 import nitezh.ministock.R;
 
@@ -19,6 +24,8 @@ public class ListProvider implements RemoteViewsFactory {
 	private ArrayList<ListItem> listItemList = new ArrayList<ListItem>();
 	private Context context = null;
 	private int appWidgetId;
+	private JSONObject json = null;
+	private String[] stockList = {"BTC", "ETH", "GOOG", "AAPL", "TSLA", "GM", "NFLX", "DIS", "TWTR", "PYPL", "FEYE", "FB", "BABA"};
 
 	public ListProvider(Context context, Intent intent) {
 		this.context = context;
@@ -28,15 +35,33 @@ public class ListProvider implements RemoteViewsFactory {
 		populateListItem();
 	}
 
-	private void populateListItem() {
-		for (int i = 0; i < 10; i++) {
-			ListItem listItem = new ListItem();
-			listItem.heading = "Heading" + i;
-			listItem.content = i
-					+ " This is the content of the app widget listview.Nice content though";
-			listItemList.add(listItem);
-		}
+	public String stockURLStringBuilder(String stock) {
+		return "https:api.iextrading.com/1.0/stock/" + stock + "/price";
+	}
 
+	public String cryptoURLStringBuilder(String crypto) {
+        return "https://min-api.cryptocompare.com/data/price?fsym=" + crypto + "&tsyms=CAD";
+    }
+
+
+	private void populateListItem() {
+		System.out.println(stockList);
+		try {
+            for (String stock: stockList) {
+                ListItem listItem = new ListItem();
+                listItem.heading = stock;
+
+                if (stock.equals("BTC") || stock.equals("ETH")) {
+
+                    listItem.content = new JSONObject(new ServiceTask(this.context).execute(cryptoURLStringBuilder(stock), "GET", "").get()).getString("CAD");
+                }else
+                    listItem.content = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
+
+                listItemList.add(listItem);
+            }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -83,6 +108,7 @@ public class ListProvider implements RemoteViewsFactory {
 
 	@Override
 	public void onCreate() {
+
 	}
 
 	@Override
