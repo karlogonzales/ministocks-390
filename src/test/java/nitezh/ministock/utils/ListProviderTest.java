@@ -1,14 +1,9 @@
 package nitezh.ministock.utils;
 
-import android.content.Context;
-
 import junit.framework.TestCase;
 
 import org.mockito.Mockito;
 
-/**
- * Created by karlo on 2018-03-16.
- */
 public class ListProviderTest extends TestCase {
     public void testStockURLStringBuilder() throws Exception {
         ListProvider mockListProvider = Mockito.mock(ListProvider.class);
