@@ -6,9 +6,55 @@
     android:layout_height="match_parent"
     tools:context="nitezh.ministock.activities.MenuScrollableActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Custom Menu for Scrollable"/>
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+        </SearchView>
+
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/searchView"
+            android:layout_marginEnd="55dp"
+            android:layout_marginRight="55dp"
+            android:layout_marginTop="51dp"
+            android:layout_toLeftOf="@+id/cancelButton"
+            android:layout_toStartOf="@+id/cancelButton"
+            android:background="@drawable/widget_bg"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:elevation="0dp"
+            android:text="add" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/addButton"
+            android:layout_alignBottom="@+id/addButton"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="71dp"
+            android:layout_marginRight="71dp"
+            android:background="@drawable/widget_bg"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:text="Cancel" />
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
