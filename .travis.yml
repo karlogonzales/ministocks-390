@@ -29,9 +29,9 @@ before_install:
 jobs:
   include:
     - stage: build
-      script: ./gradlew check
-    - stage: test
       script: ./gradlew build
+    - stage: test
+      script: ./gradlew check
 
 notifications:
   slack:
