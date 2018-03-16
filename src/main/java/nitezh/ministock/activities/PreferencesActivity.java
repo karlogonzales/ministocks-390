@@ -179,6 +179,12 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
             removePref(widget_views, "show_profit_daily_change");
             removePref(widget_views, "show_profit_change");
         }
+        if (widgetSize == 4) {
+//            PreferenceScreen stock_setup = (PreferenceScreen) findPreference("stock_setup");
+//            for (int i = 5; i < 11; i++)
+//                removePref(stock_setup, "Stock" + i);
+        }
+
         // Hide Feedback option if not relevant
         String install_date = getAppPreferences().getString("install_date", null);
         if (DateTools.elapsedDays(install_date) < 30)
@@ -702,7 +708,7 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
             }
 
             // Initialise the ListPreference summaries
-            else if (key.startsWith("background") || key.startsWith("updated_colour") || key.startsWith("updated_display") || key.startsWith("text_style")) {
+            else if (key.startsWith("background") || key.startsWith("updated_colour") || key.startsWith("text_style") || key.startsWith("updated_display") || key.startsWith("colour_style"))  {
                 String value = sharedPreferences.getString(key, "");
                 preference.setSummary("Selected: " + value.substring(0, 1).toUpperCase() + value.substring(1));
             }
