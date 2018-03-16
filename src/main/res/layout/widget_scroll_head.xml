@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:text="Scrollable"
         android:textSize="15sp"
-        android:id="@+id/widget_left"
+        android:id="@+id/Scrollable"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -17,16 +17,22 @@
         android:text="Custom"
         android:textSize="15sp"
         android:id="@+id/custom"
-
         />
-
     <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentRight="true"
-    android:text="Edit"
-    android:textSize="15sp"
-    android:id="@+id/edit"
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:text="Edit"
+        android:textSize="15sp"
+        android:id="@+id/edit"
     />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:text="Refresh"
+        android:textSize="15sp"
+        android:id="@+id/Refresh"
+        />
 </RelativeLayout>
