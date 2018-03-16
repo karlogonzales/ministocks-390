@@ -16,8 +16,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
-import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertTrue;
+import static junit.framework.Assert.fail;
 
 @RunWith(AndroidJUnit4.class)
 @SdkSuppress(minSdkVersion = 18)
@@ -25,6 +25,7 @@ import static junit.framework.Assert.assertTrue;
 public class ScrollableWidgetTest extends AndroidJUnitRunner{
     private static final int LAUNCH_TIMEOUT = 5000;;
     private UiDevice mDevice;
+    private String[] defaultStocks = {"BTC", "ETH", "GOOG", "AAPL", "TSLA", "GM", "NFLX", "DIS", "TWTR", "PYPL", "FEYE", "FB", "BABA"};
 
     @Override
     public void onCreate(Bundle args) {
@@ -47,23 +48,40 @@ public class ScrollableWidgetTest extends AndroidJUnitRunner{
         mDevice.pressHome();
         mDevice.waitForIdle();
 
-        UiObject2 button = mDevice.findObject(By.text("Edit"));
-        String appPackage = button.getApplicationPackage();
-        UiObject2 parent = button.getParent();
-        String p = parent.getClassName();
-        UiObject2 parent2 = parent.getParent();
-        String p2 = parent2.getClassName();
-        System.out.println("test");
-
-        UiObject stockList = mDevice.findObject(new UiSelector()
-                .className("android.widget.ListView")
-                .packageName("nitezh.ministock"));
-
         UiScrollable scrollableStocks = new UiScrollable(new UiSelector()
                 .className("android.widget.ListView")
                 .packageName("nitezh.ministock"));
 
         scrollableStocks.setAsVerticalList();
         scrollableStocks.scrollToEnd(50);
+
+        assertTrue(scrollableStocks.isScrollable());
+    }
+
+    @Test
+    public void defaultStockListTest() throws UiObjectNotFoundException {
+        // Initialize UiDevice instance
+                mDevice = UiDevice.getInstance(getInstrumentation());
+
+        // Start from the home screen
+        mDevice.pressHome();
+        mDevice.waitForIdle();
+
+        UiScrollable scrollableStocks = new UiScrollable(new UiSelector()
+                .className("android.widget.ListView")
+                .packageName("nitezh.ministock"));
+
+        scrollableStocks.setAsVerticalList();
+        scrollableStocks.scrollToBeginning(50);
+        int maxSearchSwipes = scrollableStocks.getMaxSearchSwipes();
+
+        for (String stock : defaultStocks){
+            try {
+                UiObject stockObject = scrollableStocks.getChild(new UiSelector().text(stock));
+                stockObject.click();
+            } catch (UiObjectNotFoundException e) {
+                fail("The stock " + stock + " could not be found in the default developer stock list.");
+            }
+        }
     }
 }
