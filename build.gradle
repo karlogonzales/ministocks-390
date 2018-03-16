@@ -54,6 +54,12 @@ dependencies {
     androidTestCompile 'junit:junit:4.12'
 }
 
+project.gradle.taskGraph.whenReady{
+    connectedDebugAndroidTest {
+        ignoreFailures = true
+    }
+}
+
 allprojects {
     repositories {
         jcenter()
