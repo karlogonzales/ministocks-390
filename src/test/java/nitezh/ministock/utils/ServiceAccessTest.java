@@ -23,7 +23,7 @@ public class ServiceAccessTest extends TestCase {
     }
 
     public void testResponse() throws Exception {
-        Assume.assumeTrue(System.getenv("TRAVIS_CI") == null);
+//        Assume.assumeTrue(System.getenv("TRAVIS_CI") == null);
 
         ServiceAccess serviceAccess = new ServiceAccess();
         String res = serviceAccess.execute("https:api.iextrading.com/1.0/stock/GOOG/price", "GET");
