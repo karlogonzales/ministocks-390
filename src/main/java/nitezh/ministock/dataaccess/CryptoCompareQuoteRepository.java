@@ -19,7 +19,7 @@ public class CryptoCompareQuoteRepository {
         JSONObject jsonResponse;
         JSONObject jsonStock;
 
-        try{
+        try {
             jsonResponse = retrieveQuotesAsJson(cache, symbols).getJSONObject("RAW");
 
             for (String symbol : symbols) {
@@ -38,25 +38,25 @@ public class CryptoCompareQuoteRepository {
 
                 quotes.put(quote.getSymbol(), quote);
             }
-        } catch (JSONException ignored){
+        } catch (JSONException ignored) {
 
         }
 
         return quotes;
     }
 
-    public String buildRequestUrl(List<String> symbols){
+    public String buildRequestUrl(List<String> symbols) {
         StringBuilder sQuery = new StringBuilder();
 
-        for (String s : symbols){
-            if (!s.equals("")){
-                if(!sQuery.toString().equals("")){
+        for (String s : symbols) {
+            if (!s.equals("")) {
+                if (!sQuery.toString().equals("")) {
                     sQuery.append(",");
                 }
                 sQuery.append(s);
             }
         }
-        return String.format("%s%s%s", BASE_URL,sQuery, "&tsyms=CAD");
+        return String.format("%s%s%s", BASE_URL, sQuery, "&tsyms=CAD");
     }
 
     public JSONObject retrieveQuotesAsJson(Cache cache, List<String> symbols) throws JSONException {

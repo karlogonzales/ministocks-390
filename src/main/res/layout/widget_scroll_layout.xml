@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/ministock_bg_transparent68" >
+    android:background="@drawable/ministock_bg_transparent68"
+    android:orientation="vertical">
 
     <include layout="@layout/widget_scroll_head" />
 
@@ -11,8 +11,7 @@
         android:id="@+id/listViewWidget"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="15dp"
-        />
+        android:layout_marginTop="15dp" />
 
     <TextView
         android:id="@+id/empty_view"
@@ -23,7 +22,6 @@
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:visibility="gone" />
-
 
 
 </LinearLayout>

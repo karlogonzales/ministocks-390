@@ -2,18 +2,12 @@ package nitezh.ministock.utils;
 
 import junit.framework.TestCase;
 
-import org.json.JSONObject;
-import org.junit.Assume;
 import org.mockito.Mockito;
 
 import static org.mockito.Mockito.mock;
 
-
-/**
- * Created by karlo on 2018-03-16.
- */
 public class ServiceAccessTest extends TestCase {
-    public void testExecute(){
+    public void testExecute() {
         try {
             ServiceAccess mockServiceAccess = mock(ServiceAccess.class);
             Mockito.when(mockServiceAccess.execute("https:api.iextrading.com/1.0/stock/GOOG/price", "GET")).thenReturn("{1000.00}");
