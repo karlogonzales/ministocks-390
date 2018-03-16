@@ -24,7 +24,7 @@ public class WidgetProviderScrollable extends WidgetProviderBase {
                          int[] appWidgetIds) {
         final int N = appWidgetIds.length;
         /*int[] appWidgetIds holds ids of multiple instance of your widget
-		 * meaning you are placing more than one widgets on your homescreen*/
+         * meaning you are placing more than one widgets on your homescreen*/
         for (int i = 0; i < N; ++i) {
             RemoteViews remoteViews = updateWidgetListView(context,
                     appWidgetIds[i]);
