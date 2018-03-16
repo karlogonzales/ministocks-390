@@ -14,6 +14,7 @@ android:
 
 jdk:
   - oraclejdk8
+  - oraclejdk9
 
 before_install:
   - chmod +x gradlew
@@ -30,7 +31,7 @@ jobs:
     - stage: build
       script: ./gradlew check
     - stage: test
-      script: ./AndroidWidgetTests
+      script: ./gradlew build
 
 notifications:
   slack:
