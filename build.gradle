@@ -1,7 +1,6 @@
 buildscript {
     repositories {
         mavenCentral()
-        google()
     }
     dependencies {
         // Check supported Gradle version at the URL below before changing the below
