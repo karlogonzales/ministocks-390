@@ -34,11 +34,11 @@ public class ScrollableWidgetTest extends AndroidJUnitRunner{
     /**
      * This test finds the scrollable ListView in the widget and scrolls to the end
      * to validate that it is a scrollable widget.
-     * @throws InterruptedException
-     * @throws UiObjectNotFoundException
+     * @throws UiObjectNotFoundException Thrown when the attempting to perform an operation
+     *                                   on a ui object that does not exist.
      */
     @Test
-    public void searchForResizeableTest() throws InterruptedException, UiObjectNotFoundException {
+    public void searchForResizeableTest() throws UiObjectNotFoundException {
         //Skipif
         Assume.assumeTrue(System.getenv("TRAVIS_CI") == null);
 
@@ -59,6 +59,12 @@ public class ScrollableWidgetTest extends AndroidJUnitRunner{
         assertTrue(scrollableStocks.isScrollable());
     }
 
+    /**
+     * This test searches through scrollable list of stocks and veirifies that the default
+     * developer stock list is present.
+     * @throws UiObjectNotFoundException Thrown when the attempting to perform an operation
+     *                                   on a ui object that does not exist.
+     */
     @Test
     public void defaultStockListTest() throws UiObjectNotFoundException {
         //Skipif
