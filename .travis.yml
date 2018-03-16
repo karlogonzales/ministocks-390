@@ -29,7 +29,7 @@ jobs:
     - stage: build
       script: ./gradlew check
     - stage: test
-      script: ./test --recursive
+      script: ./mocks --recursive
 
 notifications:
   slack:
