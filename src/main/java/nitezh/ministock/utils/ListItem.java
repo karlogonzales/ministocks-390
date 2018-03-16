@@ -1,6 +1,6 @@
 package nitezh.ministock.utils;
 
 public class ListItem {
-	public String heading,content;
+	public String symbol, price, change, percent, exchange;
 
 }

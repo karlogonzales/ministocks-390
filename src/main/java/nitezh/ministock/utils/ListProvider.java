@@ -11,9 +11,19 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import nitezh.ministock.PreferenceStorage;
 import nitezh.ministock.R;
+import nitezh.ministock.Storage;
+import nitezh.ministock.activities.widget.WidgetProviderBase;
+import nitezh.ministock.domain.AndroidWidgetRepository;
+import nitezh.ministock.domain.StockQuote;
+import nitezh.ministock.domain.StockQuoteRepository;
+import nitezh.ministock.domain.WidgetRepository;
 
 /**
  * If you are familiar with Adapter of ListView,this is the same as adapter
@@ -26,6 +36,8 @@ public class ListProvider implements RemoteViewsFactory {
 	private int appWidgetId;
 	private JSONObject json = null;
 	private String[] stockList = {"BTC", "ETH", "GOOG", "AAPL", "TSLA", "GM", "NFLX", "DIS", "TWTR", "PYPL", "FEYE", "FB", "BABA"};
+	private HashMap <String, StockQuote> quotes;
+	private WidgetProviderBase.UpdateType updateType;
 
 	public ListProvider(Context context, Intent intent) {
 		this.context = context;
@@ -45,23 +57,53 @@ public class ListProvider implements RemoteViewsFactory {
 
 
 	private void populateListItem() {
-		System.out.println(stockList);
+
+//Creating new StockQuoteRepository and passing it the current context
+			WidgetRepository widgetRepository = new AndroidWidgetRepository(this.context);
+			Storage storage = PreferenceStorage.getInstance(this.context);
+			StockQuoteRepository quoteRepository = new StockQuoteRepository(
+					PreferenceStorage.getInstance(this.context), new StorageCache(storage),
+					widgetRepository);
+//Extracting the quotes into a list
+			this.quotes = quoteRepository.getQuotes(
+					widgetRepository.getWidget(this.appWidgetId).getSymbols(),
+					updateType == WidgetProviderBase.UpdateType.VIEW_UPDATE);
+//
+//
+			if(!quotes.isEmpty()) {
+				Collection<StockQuote> values = quotes.values();
+				List<StockQuote> finalStocks = new ArrayList<StockQuote>(values);
+				//Creating listItems from the quote list we made and passing them to the listview
+				for (int i = 0; i < finalStocks.size(); i++) {
+					StockQuote quote = finalStocks.get(i);
+					ListItem listItem = new ListItem();
+					listItem.symbol = quote.getSymbol();
+					listItem.price = quote.getPrice();
+					listItem.change = quote.getChange();
+					listItem.percent = quote.getPercent();
+					listItem.exchange = quote.getExchange();
+					listItemList.add(listItem);
+				}
+			}
+			else{
+				System.out.println(stockList);
 		try {
             for (String stock: stockList) {
                 ListItem listItem = new ListItem();
-                listItem.heading = stock;
+                listItem.symbol = stock;
 
                 if (stock.equals("BTC") || stock.equals("ETH")) {
 
-                    listItem.content = new JSONObject(new ServiceTask(this.context).execute(cryptoURLStringBuilder(stock), "GET", "").get()).getString("CAD");
+                    listItem.price = new JSONObject(new ServiceTask(this.context).execute(cryptoURLStringBuilder(stock), "GET", "").get()).getString("CAD");
                 }else
-                    listItem.content = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
+                    listItem.price = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
 
                 listItemList.add(listItem);
             }
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+			}
 	}
 
 	@Override
@@ -84,8 +126,11 @@ public class ListProvider implements RemoteViewsFactory {
 		final RemoteViews remoteView = new RemoteViews(
 				context.getPackageName(), R.layout.list_row);
 		ListItem listItem = listItemList.get(position);
-		remoteView.setTextViewText(R.id.heading, listItem.heading);
-		remoteView.setTextViewText(R.id.content, listItem.content);
+		remoteView.setTextViewText(R.id.Symbol, listItem.symbol);
+		remoteView.setTextViewText(R.id.Price, listItem.price);
+		remoteView.setTextViewText(R.id.Change, listItem.change);
+		remoteView.setTextViewText(R.id.Percent, listItem.percent);
+		remoteView.setTextViewText(R.id.Exchange, listItem.exchange);
 
 		return remoteView;
 	}

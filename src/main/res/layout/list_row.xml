@@ -5,34 +5,36 @@
     android:orientation="horizontal"
     android:src="@drawable/ministock_bg_transparent68" >
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="57dp"
-        android:layout_height="57dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="8dip"
-        android:src="@drawable/icon" />
+    <TextView
+        android:id="@+id/Symbol"
+        style="@style/StockName"
+        android:layout_width="75dp" />
 
     <TextView
-        android:id="@+id/heading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_toRightOf="@id/imageView"
-        android:singleLine="true"
-        android:textSize="14sp"
-        android:textStyle="bold" 
-        android:text="Heading"/>
+        android:id="@+id/Price"
+        style="@style/StockPrice"
+        android:layout_width="75dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/Symbol" />
 
     <TextView
-        android:id="@+id/content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/heading"
-        android:layout_marginTop="5dip"
-        android:layout_toRightOf="@id/imageView"
-        android:textSize="14sp" 
-        android:text="Content"/>
+        android:id="@+id/Change"
+        style="@style/StockPrice"
+        android:layout_width="75dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/Price" />
 
+    <TextView
+        android:id="@+id/Percent"
+        style="@style/StockWideChange"
+        android:layout_width="75dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/Change" />
+
+    <TextView
+        android:id="@+id/Exchange"
+        style="@style/StockWideChange"
+        android:layout_width="75dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/Percent" />
 </RelativeLayout>
