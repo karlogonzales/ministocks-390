@@ -180,9 +180,7 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
             removePref(widget_views, "show_profit_change");
         }
         if (widgetSize == 4) {
-//            PreferenceScreen stock_setup = (PreferenceScreen) findPreference("stock_setup");
-//            for (int i = 5; i < 11; i++)
-//                removePref(stock_setup, "Stock" + i);
+
         }
 
         // Hide Feedback option if not relevant

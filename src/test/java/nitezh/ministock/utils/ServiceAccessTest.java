@@ -7,10 +7,6 @@ import org.mockito.Mockito;
 
 import static org.mockito.Mockito.mock;
 
-
-/**
- * Created by karlo on 2018-03-16.
- */
 public class ServiceAccessTest extends TestCase {
     public void testExecute() throws Exception {
         ServiceAccess mockServiceAccess = mock(ServiceAccess.class);

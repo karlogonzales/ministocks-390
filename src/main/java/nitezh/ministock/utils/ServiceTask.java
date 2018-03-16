@@ -5,10 +5,6 @@ import android.os.AsyncTask;
 
 import java.net.ConnectException;
 
-/**
- * Created by Rohana on 8/13/2017.
- */
-
 public class ServiceTask extends AsyncTask<String, String, String> {
 
     private Exception exception;

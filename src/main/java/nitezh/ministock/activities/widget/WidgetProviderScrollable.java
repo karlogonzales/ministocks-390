@@ -30,13 +30,6 @@ public class WidgetProviderScrollable extends WidgetProviderBase {
                     appWidgetIds[i]);
             appWidgetManager.updateAppWidget(appWidgetIds[i], remoteViews);
 
-			/*
-			PreferencesActivity.mAppWidgetId = appWidgetId;
-			Intent intent = new Intent(context, PreferencesActivity.class);
-			activity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			context.startActivity(intent);
-			 */
-
             //menu already implemented
             Intent edit_intent = new Intent(context, PreferencesActivity.class);
             edit_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
