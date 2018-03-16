@@ -12,5 +12,6 @@ public class ConfigureActivityResizable extends ConfigureActivityBase {
     public void onCreate(Bundle savedInstanceState) {
         mWidgetSize = 3;
         super.onCreate(savedInstanceState);
-    }}
+    }
+}
 

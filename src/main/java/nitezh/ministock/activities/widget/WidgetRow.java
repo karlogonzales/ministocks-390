@@ -30,9 +30,8 @@ import nitezh.ministock.domain.Widget;
 
 class WidgetRow {
     private final Widget widget;
-
-    private String symbol;
     private final int symbolDisplayColor;
+    private String symbol;
     private String price;
     private int priceColor;
     private String volume;
@@ -65,32 +64,32 @@ class WidgetRow {
         switch (this.widget.getColourStyle()) {
 
             case "WHITE":
-                dColour=Color.WHITE;
-            break;
+                dColour = Color.WHITE;
+                break;
 
             case "RED":
-                dColour=Color.RED;
-            break;
+                dColour = Color.RED;
+                break;
 
             case "GREEN":
-                dColour=Color.GREEN;
+                dColour = Color.GREEN;
                 break;
 
             case "YELLOW":
-                dColour=Color.YELLOW;
+                dColour = Color.YELLOW;
                 break;
 
             case "CYAN":
-                dColour=Color.CYAN;
+                dColour = Color.CYAN;
                 break;
 
             case "GRAY":
-                dColour=Color.GRAY;
+                dColour = Color.GRAY;
                 break;
 
             default:
-                dColour=Color.BLACK;
-            break;
+                dColour = Color.BLACK;
+                break;
         }
         return dColour;
     }

@@ -2,7 +2,6 @@ package nitezh.ministock.utils;
 
 import junit.framework.TestCase;
 
-import org.json.JSONObject;
 import org.junit.Assume;
 import org.mockito.Mockito;
 
@@ -28,6 +27,6 @@ public class ServiceAccessTest extends TestCase {
         ServiceAccess serviceAccess = new ServiceAccess();
         String res = serviceAccess.execute("https:api.iextrading.com/1.0/stock/GOOG/price", "GET");
 
-        assertEquals(res.isEmpty(),false );
+        assertEquals(res.isEmpty(), false);
     }
 }
