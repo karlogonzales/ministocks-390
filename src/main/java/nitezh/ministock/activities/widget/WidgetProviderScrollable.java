@@ -68,12 +68,21 @@ public class WidgetProviderScrollable extends WidgetProviderBase {
             //Refresh menu
             Intent refreshIntent = new Intent(context, ListProvider.class);
             refreshIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetIds[i]);
-            refreshIntent.setData()
-            PendingIntent refreshIntent = Pending.Intent.getBroadcast(context, 0, refresh, 0);
-            views.setOnClickPendingIntent(R.id.Refresh, refreshIntent);
-            appWidgetManager.updateAppWidget(new ComponentName(context, ListProvider.class), widget);
+            refreshIntent.setData(Uri.parse(refreshIntent.toUri(Intent.URI_INTENT_SCHEME)));
+            PendingIntent pendingRefreshIntent = PendingIntent.getService(context, 0, refreshIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
+			Intent settingsIntent = new Intent(context, ListProvider.class);
+			settingsIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			settingsIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetIds[i]);
+			settingsIntent.setData(Uri.parse(settingsIntent.toUri(Intent.URI_INTENT_SCHEME)));
+			PendingIntent pendingSettingsIntent = PendingIntent.getActivity(context, 0, settingsIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
+			RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_scroll_layout);
+			views.setOnClickPendingIntent(R.id.Refresh, pendingSettingsIntent);
+			views.setOnClickPendingIntent(R.id.Refresh, pendingRefreshIntent);
+
+			context.startService(refreshIntent);
+			appWidgetManager.updateAppWidget(appWidgetIds[i], views);
           
 		}
 		super.onUpdate(context, appWidgetManager, appWidgetIds);
