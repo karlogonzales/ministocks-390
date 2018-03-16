@@ -3,6 +3,7 @@ package nitezh.ministock.activities.widget;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -10,6 +11,7 @@ import android.widget.RemoteViews;
 import nitezh.ministock.R;
 import nitezh.ministock.activities.MenuScrollableActivity;
 import nitezh.ministock.activities.PreferencesActivity;
+import nitezh.ministock.utils.ListProvider;
 import nitezh.ministock.utils.WidgetService;
 
 public class WidgetProviderScrollable extends WidgetProviderBase {
@@ -64,19 +66,15 @@ public class WidgetProviderScrollable extends WidgetProviderBase {
 
 
             //Refresh menu
-            Intent intent = new Intent(context, MenuScrollableActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-            PendingIntent pending = PendingIntent.getActivity(context, 0,
-                    intent, 0);
-            RemoteViews views = new RemoteViews(context.getPackageName(),
-                    R.layout.widget_scroll_layout);
-
-            views.setOnClickPendingIntent(R.id.Refresh, pending);
-            appWidgetManager.updateAppWidget(appWidgetIds[i], views);
+            Intent refreshIntent = new Intent(context, ListProvider.class);
+            refreshIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetIds[i]);
+            refreshIntent.setData()
+            PendingIntent refreshIntent = Pending.Intent.getBroadcast(context, 0, refresh, 0);
+            views.setOnClickPendingIntent(R.id.Refresh, refreshIntent);
+            appWidgetManager.updateAppWidget(new ComponentName(context, ListProvider.class), widget);
 
 
+          
 		}
 		super.onUpdate(context, appWidgetManager, appWidgetIds);
 
