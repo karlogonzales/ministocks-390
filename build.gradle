@@ -1,6 +1,7 @@
 buildscript {
     repositories {
         mavenCentral()
+        google()
     }
     dependencies {
         // Check supported Gradle version at the URL below before changing the below
@@ -35,6 +36,8 @@ android {
 dependencies {
     compile fileTree(include: '*.jar', dir: 'libs')
     compile 'com.google.guava:guava:19.0'
+    compile 'com.android.support:appcompat-v7:25.4.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     testCompile 'org.json:json:20160810'
     testCompile 'org.robolectric:robolectric:3.1.2'
@@ -43,5 +46,6 @@ dependencies {
 allprojects {
     repositories {
         jcenter()
+        google()
     }
 }

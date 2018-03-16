@@ -134,7 +134,7 @@ public class WidgetProviderBase extends AppWidgetProvider {
         return UpdateType.VIEW_CHANGE;
     }
 
-    private void startPreferencesActivity(Context context, int appWidgetId) {
+    public void startPreferencesActivity(Context context, int appWidgetId) {
         PreferencesActivity.mAppWidgetId = appWidgetId;
         Intent activity = new Intent(context, PreferencesActivity.class);
         activity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
