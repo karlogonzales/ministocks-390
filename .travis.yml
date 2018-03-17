@@ -39,10 +39,10 @@ jobs:
     - stage: build
       script: cd $TRAVIS_BUILD_DIR/src/main
     - stage: test
-      script: ./gradlew build connectedCheck
+      script: ./gradlew build
     - stage: unitTest
-      script: cd $TRAVIS_BUILD_DIR/src/test
-#     script: ./gradlew test
+  #   script: cd $TRAVIS_BUILD_DIR/src/test
+      script: ./gradlew test
 
 
 notifications:
