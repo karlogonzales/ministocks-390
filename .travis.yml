@@ -16,6 +16,8 @@ android:
 
 jdk:
   - oraclejdk8
+# - oraclejdk9
+# - openjdk7
 
 before_install:
   - chmod +x gradlew
@@ -35,7 +37,8 @@ jobs:
       script: ./gradlew build
     - stage: unitTest
       script: cd $TRAVIS_BUILD_DIR/src/test
-    
+#     script: ./gradlew test
+
 
 notifications:
   slack:

@@ -1,6 +1,7 @@
 buildscript {
     repositories {
         mavenCentral()
+        google()
     }
     dependencies {
         // Check supported Gradle version at the URL below before changing the below
@@ -20,6 +21,14 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
 
+    defaultConfig {
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    configurations.all{
+        resolutionStrategy.force 'com.android.support:support-annotations:22.1.0'
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -37,12 +46,24 @@ dependencies {
     compile 'com.google.guava:guava:19.0'
     compile 'com.squareup.okhttp3:okhttp:3.10.0'
     testCompile 'junit:junit:4.12'
+    testCompile "org.mockito:mockito-core:1.+"
     testCompile 'org.json:json:20160810'
     testCompile 'org.robolectric:robolectric:3.1.2'
+    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
+    androidTestCompile 'com.android.support.test:runner:1.0.1'
+    androidTestCompile 'com.android.support.test:rules:1.0.1'
+    androidTestCompile 'junit:junit:4.12'
+}
+
+project.gradle.taskGraph.whenReady{
+    connectedDebugAndroidTest {
+        ignoreFailures = true
+    }
 }
 
 allprojects {
     repositories {
         jcenter()
+        google()
     }
 }

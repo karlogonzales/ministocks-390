@@ -4,8 +4,6 @@ package nitezh.ministock.activities;
 import android.app.Activity;
 import android.os.Bundle;
 
-
-
 import nitezh.ministock.R;
 
 public class MenuScrollableActivity extends Activity {

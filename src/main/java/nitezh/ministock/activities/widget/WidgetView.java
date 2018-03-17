@@ -35,19 +35,25 @@ import android.text.style.StyleSpan;
 import android.view.View;
 import android.widget.RemoteViews;
 
-import nitezh.ministock.PreferenceStorage;
-import nitezh.ministock.R;
-import nitezh.ministock.WidgetProvider;
-import nitezh.ministock.domain.*;
-import nitezh.ministock.utils.CurrencyTools;
-import nitezh.ministock.utils.NumberTools;
-import nitezh.ministock.utils.ReflectionTools;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+
+import nitezh.ministock.PreferenceStorage;
+import nitezh.ministock.R;
+import nitezh.ministock.WidgetProvider;
+import nitezh.ministock.domain.AndroidWidgetRepository;
+import nitezh.ministock.domain.PortfolioStock;
+import nitezh.ministock.domain.PortfolioStockRepository;
+import nitezh.ministock.domain.StockQuote;
+import nitezh.ministock.domain.Widget;
+import nitezh.ministock.domain.WidgetRepository;
+import nitezh.ministock.domain.WidgetStock;
+import nitezh.ministock.utils.CurrencyTools;
+import nitezh.ministock.utils.NumberTools;
+import nitezh.ministock.utils.ReflectionTools;
 
 import static nitezh.ministock.activities.widget.WidgetProviderBase.UpdateType;
 import static nitezh.ministock.activities.widget.WidgetProviderBase.ViewType;
@@ -111,9 +117,9 @@ class WidgetView {
         //added size = 4 for scrollable widget
         //this is for adding functionality to the scrollable widget
         else if (widget.getSize() == 4) {
-                views = new RemoteViews(packageName, R.layout.widget_scroll_layout);
+            views = new RemoteViews(packageName, R.layout.widget_scroll_layout);
 
-        }else {
+        } else {
             if (useLargeFont) {
                 views = new RemoteViews(packageName, R.layout.widget_1x2_large);
             } else {
@@ -201,7 +207,7 @@ class WidgetView {
                 break;
         }
 
-           return span;
+        return span;
     }
 
     public void setOnClickPendingIntents() {
