@@ -3,11 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
     tools:context="nitezh.ministock.activities.MenuScrollableActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <SearchView
+        android:id="@+id/searchview"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Custom Menu for Scrollable" />
+        android:queryHint="Search..." />
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="400dp" />
+
+    <Button
+        android:id="@+id/addbutton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:text="Add" />
 
 </LinearLayout>
