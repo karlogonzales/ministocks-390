@@ -12,14 +12,17 @@ android:
     - platform-tools
     - build-tools-$ANDROID_BUILD_TOOLS
     - android-$ANDROID_API
-    - sys-img-armeabi-v7a-android-$ANDROID_API
+    - sys-img-armeabi-v7a-android-26
+    
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - addon-google_apis-google-26
 
 jdk:
   - oraclejdk8
 # - oraclejdk9
 # - openjdk7
-
-sudo: false
 
 before_install:
   - chmod +x gradlew
