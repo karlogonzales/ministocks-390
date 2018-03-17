@@ -4,6 +4,6 @@
     android:minHeight="110dip"
     android:minWidth="250dip"
     android:previewImage="@drawable/icon"
-    android:resizeMode="vertical|horizontal"  
+    android:resizeMode="vertical|horizontal"
     android:updatePeriodMillis="1800000" />
 

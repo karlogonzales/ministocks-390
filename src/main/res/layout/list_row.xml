@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:src="@drawable/ministock_bg_transparent68" >
+    android:src="@drawable/ministock_bg_transparent68">
 
     <ImageView
         android:id="@+id/imageView"
@@ -20,9 +20,9 @@
         android:layout_alignParentLeft="true"
         android:layout_toRightOf="@id/imageView"
         android:singleLine="true"
+        android:text="Heading"
         android:textSize="14sp"
-        android:textStyle="bold" 
-        android:text="Heading"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/content"
@@ -32,7 +32,7 @@
         android:layout_below="@id/heading"
         android:layout_marginTop="5dip"
         android:layout_toRightOf="@id/imageView"
-        android:textSize="14sp" 
-        android:text="Content"/>
+        android:text="Content"
+        android:textSize="14sp" />
 
 </RelativeLayout>
