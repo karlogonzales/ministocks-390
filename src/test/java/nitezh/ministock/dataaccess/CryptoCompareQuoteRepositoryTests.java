@@ -1,7 +1,5 @@
 package nitezh.ministock.dataaccess;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +10,6 @@ import java.util.List;
 
 import nitezh.ministock.domain.StockQuote;
 import nitezh.ministock.mocks.MockCache;
-import nitezh.ministock.utils.UrlDataTools;
 
 import static org.junit.Assert.assertEquals;
 
@@ -26,7 +23,7 @@ public class CryptoCompareQuoteRepositoryTests {
     }
 
     @Test
-    public void getQuotes(){
+    public void getQuotes() {
         //Skipif
         Assume.assumeTrue(System.getenv("TRAVIS_CI") == null);
 
@@ -50,7 +47,7 @@ public class CryptoCompareQuoteRepositoryTests {
     }
 
     @Test
-    public void buildRequestUrl(){
+    public void buildRequestUrl() {
         List<String> symbols = Arrays.asList("BTC", "ETH");
         String expected = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH&tsyms=CAD";
 

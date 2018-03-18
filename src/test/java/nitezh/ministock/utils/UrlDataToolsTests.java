@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class UrlDataToolsTests {
     @Test
     public void testDataRetrievalFromIex() throws IOException {
-        // Skipif
+        // SkipIf
         Assume.assumeTrue(System.getenv("TRAVIS_CI") == null);
 
         // Arrange

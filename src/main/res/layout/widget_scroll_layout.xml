@@ -1,59 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:background="@drawable/ministock_bg_transparent68" >
+    android:background="@drawable/ministock_bg_transparent68"
+    android:orientation="vertical">
 
+    <include layout="@layout/widget_scroll_head" />
 
-    <FrameLayout
-        android:id="@+id/header"
+    <ListView
+        android:id="@+id/listViewWidget"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true">
-        <include layout="@layout/widget_scroll_head" />
-    </FrameLayout>
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp" />
 
-    <FrameLayout
-        android:id="@+id/listview"
+    <TextView
+        android:id="@+id/empty_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        >
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/empty_string"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:visibility="gone" />
 
 
-        <ListView
-            android:id="@+id/listViewWidget"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="15dp"
-            />
-
-        <TextView
-            android:id="@+id/empty_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/empty_string"
-            android:textColor="#ffffff"
-            android:textSize="20sp"
-            android:visibility="gone" />
-    </FrameLayout>
-
-
-
-    <FrameLayout
-        android:id="@+id/footer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
-        <include layout="@layout/widget_scroll_footer" />
-    </FrameLayout>
-
-
-
-
-
-
-</RelativeLayout>
+</LinearLayout>

@@ -38,15 +38,15 @@ import java.util.concurrent.RejectedExecutionException;
 import nitezh.ministock.CustomAlarmManager;
 import nitezh.ministock.PreferenceStorage;
 import nitezh.ministock.Storage;
-import nitezh.ministock.domain.Widget;
-import nitezh.ministock.utils.StorageCache;
 import nitezh.ministock.UserData;
 import nitezh.ministock.activities.PreferencesActivity;
 import nitezh.ministock.domain.AndroidWidgetRepository;
 import nitezh.ministock.domain.StockQuote;
 import nitezh.ministock.domain.StockQuoteRepository;
+import nitezh.ministock.domain.Widget;
 import nitezh.ministock.domain.WidgetRepository;
 import nitezh.ministock.utils.DateTools;
+import nitezh.ministock.utils.StorageCache;
 
 
 public class WidgetProviderBase extends AppWidgetProvider {
