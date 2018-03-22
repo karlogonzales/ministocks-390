@@ -44,15 +44,15 @@ public class MenuScrollableActivity extends Activity implements View.OnClickList
         //old implementation of inflateCategoryRow without having a layout for the category row
         inflateCategoryRow("Stock Setup", mainContent);
         //adds 3 buttons to the menu
-        add_btn = inflateRow("Add", "Description", mainContent);
-        remove_btn = inflateRow("Remove", "Description", mainContent);
-        change_order_btn = inflateRow("Change Order", "Description", mainContent);
-        update_btn = inflateRow("Update Stocks", "Description", mainContent);
+        add_btn = inflateRow("Add", "Add stock data to the stock list", mainContent);
+        remove_btn = inflateRow("Remove", "Remove stock data from the stock list", mainContent);
+        change_order_btn = inflateRow("Change Order", "Change the order of a stock data from the stock list", mainContent);
+        update_btn = inflateRow("Update Stocks", "Update the prices of all stocks", mainContent);
 
         inflateCategoryRow("General", mainContent);
-        appearance_btn = inflateRow("Appearance", "Description", mainContent);
-        help_btn = inflateRow("Help", "Description", mainContent);
-        about_btn = inflateRow("About", "Description", mainContent);
+        appearance_btn = inflateRow("Appearance", "Change the appearance of the widget", mainContent);
+        help_btn = inflateRow("Help", "View help and support options", mainContent);
+        about_btn = inflateRow("About", "About Ministocks and disclaimer", mainContent);
 
     }
 
