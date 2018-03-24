@@ -150,4 +150,8 @@
     <string name="appwidget_text">Resizable</string>
     <string name="add_widget">Add widget</string>
     <string name="empty_string">Empty View</string>
+
+    <!--The following string is for the Scroll Widget Menu-->
+    <string name="menu_label">Add Stock to the Widget</string>
+    <string name="search_hint">Search for a Stock</string>
 </resources>

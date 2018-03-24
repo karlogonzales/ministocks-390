@@ -88,6 +88,9 @@ public class MenuScrollableActivity extends Activity implements View.OnClickList
 
         if(v == add_btn){
             intent = new Intent(this, MenuScrollableAdd.class);
+//            LinearLayout layout = (LinearLayout) findViewById(R.layout.scroll_menu_add);
+//            String message = "Menu screen for adding a stock data";
+//            inflateRow("Add",message,layout);
         }
         else if(v == remove_btn){
             //event for this button
@@ -109,11 +112,10 @@ public class MenuScrollableActivity extends Activity implements View.OnClickList
             //event for this button
             Toast.makeText(getApplicationContext(), "help", Toast.LENGTH_SHORT).show();
         }
-        else if(v == about_btn){
+        else if(v == about_btn) {
             //event for this button
             Toast.makeText(getApplicationContext(), "about", Toast.LENGTH_SHORT).show();
         }
-
         //set the intent if the button option requires to change activity
         //otherwise, stay on this activity
         if(intent != null){
