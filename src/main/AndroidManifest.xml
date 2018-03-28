@@ -257,8 +257,13 @@
 
         </activity>
         <activity android:name=".activities.menu.MenuScrollableAdd"
-            android:label="Scrollable Widget Add">
-
+            android:label="Scrollable Widget Add"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableRemove"
+            android:label="Scrollable Widget Remove"
+            android:windowSoftInputMode="stateHidden"
+            >
         </activity>
     </application>
 

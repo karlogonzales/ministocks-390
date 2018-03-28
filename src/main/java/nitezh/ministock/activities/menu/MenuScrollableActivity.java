@@ -93,8 +93,7 @@ public class MenuScrollableActivity extends Activity implements View.OnClickList
 //            inflateRow("Add",message,layout);
         }
         else if(v == remove_btn){
-            //event for this button
-            Toast.makeText(getApplicationContext(), "remove", Toast.LENGTH_SHORT).show();
+            intent = new Intent(this, MenuScrollableRemove.class);
         }
         else if(v == change_order_btn){
             //event for this button
