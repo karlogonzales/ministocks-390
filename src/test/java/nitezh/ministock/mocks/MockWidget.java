@@ -183,6 +183,11 @@ public class MockWidget implements Widget {
     }
 
     @Override
+    public boolean shouldUpdateOnRefresh() {
+        return false;
+    }
+
+    @Override
     public void enablePercentChangeView() {
     }
 
