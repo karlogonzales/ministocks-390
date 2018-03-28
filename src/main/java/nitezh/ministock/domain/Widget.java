@@ -83,4 +83,7 @@ public interface Widget {
     boolean alwaysUseShortName();
 
     boolean shouldUpdateOnRightTouch();
+
+    boolean shouldUpdateOnRefresh();
+
 }

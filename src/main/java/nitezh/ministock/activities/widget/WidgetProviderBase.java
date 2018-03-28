@@ -120,8 +120,12 @@ public class WidgetProviderBase extends AppWidgetProvider {
         } else if (action.equals("RIGHT")) {
             UpdateType updateType = getUpdateTypeForTouchRight(context, appWidgetId);
             updateWidgetAsync(context, appWidgetId, updateType);
+        } else if (action.equals("Refresh")) {
+            UpdateType updateType = getUpdateTypeForRefresh (context, appWidgetId);
+            updateWidgetAsync(context, appWidgetId, updateType);
         }
     }
+
 
     private UpdateType getUpdateTypeForTouchRight(Context context, int widgetId) {
         WidgetRepository repository = new AndroidWidgetRepository(context);
@@ -132,6 +136,19 @@ public class WidgetProviderBase extends AppWidgetProvider {
         }
 
         return UpdateType.VIEW_CHANGE;
+    }
+
+
+    private UpdateType getUpdateTypeForRefresh(Context context, int widgetId) {
+        WidgetRepository repository = new AndroidWidgetRepository(context);
+        Widget widget = repository.getWidget(widgetId);
+
+        if (widget.shouldUpdateOnRefresh()) {
+            return UpdateType.VIEW_UPDATE;
+        }
+
+        return UpdateType.VIEW_CHANGE;
+
     }
 
     public void startPreferencesActivity(Context context, int appWidgetId) {

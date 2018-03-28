@@ -57,10 +57,14 @@ public class WidgetProviderScrollable extends WidgetProviderBase {
             appWidgetManager.updateAppWidget(appWidgetIds[i], views);
 
 			//Refresh menu
-			Intent refreshIntent = new Intent(context, ListProvider.class);
+
+			/*Intent refreshIntent = new Intent(context, ListProvider.class);
 			refreshIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetIds[i]);
 			refreshIntent.setData(Uri.parse(refreshIntent.toUri(Intent.URI_INTENT_SCHEME)));
 			PendingIntent pendingRefreshIntent = PendingIntent.getService(context, 0, refreshIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            WidgetProviderBase.updateWidgets(context,
+                    WidgetProviderBase.UpdateType.VIEW_UPDATE);
 
 			Intent settingsIntent = new Intent(context, ListProvider.class);
 			settingsIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -73,7 +77,7 @@ public class WidgetProviderScrollable extends WidgetProviderBase {
 			views.setOnClickPendingIntent(R.id.Refresh, pendingRefreshIntent);
 
 			context.startService(refreshIntent);
-			appWidgetManager.updateAppWidget(appWidgetIds[i], viewsRefresh);
+			appWidgetManager.updateAppWidget(appWidgetIds[i], viewsRefresh);*/
 
         }
         super.onUpdate(context, appWidgetManager, appWidgetIds);
