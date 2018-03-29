@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.widget.RemoteViews;
-import nitezh.ministock.utils.ListProvider;
+/*import nitezh.ministock.utils.ListProvider;*/
 import nitezh.ministock.R;
 import nitezh.ministock.activities.MenuScrollableActivity;
 import nitezh.ministock.activities.PreferencesActivity;
