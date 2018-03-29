@@ -222,6 +222,12 @@ class WidgetView {
         rightTouchIntent.setAction("RIGHT");
         this.remoteViews.setOnClickPendingIntent(R.id.widget_right,
                 PendingIntent.getBroadcast(this.context, this.widget.getId(), rightTouchIntent, 0));
+
+        Intent refreshIntent = new Intent(this.context, WidgetProvider.class);
+        refreshIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, this.widget.getId());
+        refreshIntent.setAction("Refresh");
+        this.remoteViews.setOnClickPendingIntent(R.id.Refresh,
+                PendingIntent.getBroadcast(this.context, this.widget.getId(), refreshIntent, 0));
     }
 
     private HashMap<WidgetProviderBase.ViewType, Boolean> getEnabledViews() {

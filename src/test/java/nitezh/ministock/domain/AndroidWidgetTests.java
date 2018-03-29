@@ -67,6 +67,17 @@ public class AndroidWidgetTests {
     }
 
     @Test
+    public void testShouldUpdateOnRefreshReturnsTrueIfClicked() {
+        // Arrange
+        Storage storage = widget.getStorage();
+        storage.putBoolean("update_from_widget", true);
+        storage.apply();
+
+        // Act and Assert
+        assertEquals(true, widget.shouldUpdateOnRefresh());
+    }
+
+    @Test
     public void testGetColourStyle() {
 
         Storage storage = widget.getStorage();

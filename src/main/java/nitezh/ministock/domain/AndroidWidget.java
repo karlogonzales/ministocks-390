@@ -348,4 +348,8 @@ class AndroidWidget implements Widget {
     public boolean shouldUpdateOnRightTouch() {
         return this.storage.getBoolean("update_from_widget", false);
     }
+
+    public boolean shouldUpdateOnRefresh() {
+        return this.storage.getBoolean("update_from_widget", false);
+    }
 }
