@@ -13,6 +13,11 @@ android:
     - android-$ANDROID_API
     - sys-img-armeabi-v7a-android-$ANDROID_API
 
+licenses:
+  - 'android-sdk-preview-license-.+'
+  - 'android-sdk-license-.+'
+  - 'google-gdk-license-.+'
+
 jdk:
   - oraclejdk8
 addons:
