@@ -109,12 +109,10 @@ public class MenuScrollableActivity extends Activity implements View.OnClickList
 
         }
         else if(v == help_btn){
-            //event for this button
-            Toast.makeText(getApplicationContext(), "help", Toast.LENGTH_SHORT).show();
+            intent = new Intent(this, MenuScrollableHelp.class);
         }
         else if(v == about_btn) {
-            //event for this button
-            Toast.makeText(getApplicationContext(), "about", Toast.LENGTH_SHORT).show();
+            intent = new Intent(this, MenuScrollableAbout.class);
         }
         //set the intent if the button option requires to change activity
         //otherwise, stay on this activity

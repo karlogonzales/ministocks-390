@@ -281,5 +281,58 @@
             android:label="Scrollable Widget Appearance"
             >
         </activity>
+        <activity android:name=".activities.menu.MenuScrollableAbout"
+            android:label="About"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableRecentChanges"
+            android:label="Recent Changes"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableLicense"
+            android:label="License"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableTermsOfService"
+            android:label="Terms Of Service"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableAttributions"
+            android:label="Attributions"
+            >
+        </activity>
+
+        <activity android:name=".activities.menu.MenuScrollableHelp"
+            android:label="Help"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableEnteringStocks"
+            android:label="Entering Stocks"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableSelectingWidgetViews"
+            android:label="Selecting Widget Views"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableUsingThePortfolio"
+            android:label="Using The Portfolio"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableUpdatingPrices"
+            android:label="Updating Prices"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableOnlineHelp"
+            android:label="Online Help"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableOnlineFAQs"
+            android:label="Online FAQs"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableSupport"
+            android:label="Support"
+            >
+        </activity>
     </application>
 </manifest>
