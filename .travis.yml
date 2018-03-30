@@ -37,7 +37,7 @@ jobs:
       script: ./gradlew build
     - stage: test
       script: ./gradlew test
-      script: ./gradlew sonar-scanner
+      script: sonar-scanner
 
 script: ./gradlew test
 
