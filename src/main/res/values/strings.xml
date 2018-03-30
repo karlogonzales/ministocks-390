@@ -154,4 +154,6 @@
     <!--The following string is for the Scroll Widget Menu-->
     <string name="menu_label">Add Stock to the Widget</string>
     <string name="search_hint">Search for a Stock</string>
+    <string name="fire">Fire</string>
+    <string name="sky">Sky</string>
 </resources>

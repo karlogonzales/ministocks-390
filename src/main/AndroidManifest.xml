@@ -265,6 +265,21 @@
             android:windowSoftInputMode="stateHidden"
             >
         </activity>
+        <activity android:name=".activities.menu.MenuScrollableAppearance"
+            android:label="Scrollable Widget Appearance"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableAppBackground"
+            android:label="Scrollable Widget Appearance"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableAppTxtColor"
+            android:label="Scrollable Widget Appearance"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableAppTxtStyle"
+            android:label="Scrollable Widget Appearance"
+            >
+        </activity>
     </application>
-
 </manifest>
