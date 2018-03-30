@@ -1,4 +1,4 @@
-package nitezh.ministock.activities.menu.help;
+package nitezh.ministock.activities.menu;
 
 import android.app.Activity;
 import android.content.Intent;

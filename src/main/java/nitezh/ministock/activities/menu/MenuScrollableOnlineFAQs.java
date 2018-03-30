@@ -1,14 +1,14 @@
-package nitezh.ministock.activities.menu.help;
+package nitezh.ministock.activities.menu;
 
 import android.app.Activity;
 import android.os.Bundle;
 
 import nitezh.ministock.R;
 
-public class MenuScrollableUpdatingPrices extends Activity {
+public class MenuScrollableOnlineFAQs extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.scroll_menu_updating_prices);
+        setContentView(R.layout.scroll_menu_online_faqs);
     }
 }

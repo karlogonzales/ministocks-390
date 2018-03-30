@@ -1,14 +1,14 @@
-package nitezh.ministock.activities.menu.help;
+package nitezh.ministock.activities.menu;
 
 import android.app.Activity;
 import android.os.Bundle;
 
 import nitezh.ministock.R;
 
-public class MenuScrollableOnlineHelp extends Activity {
+public class MenuScrollableUsingThePortfolio extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.scroll_menu_online_help);
+        setContentView(R.layout.scroll_menu_using_the_portfolio);
     }
 }
