@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 import nitezh.ministock.R;
 import nitezh.ministock.utils.ListItem;
+import nitezh.ministock.utils.StockListSingleton;
 
 
 public class MenuScrollableAdd extends Activity implements View.OnClickListener{
@@ -45,7 +46,7 @@ public class MenuScrollableAdd extends Activity implements View.OnClickListener{
 
         adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,stockListSearch);
         textView.setAdapter(adapter);
-        myStocks = new ArrayList <String>();
+        myStocks = new ArrayList<>();
 
     }
 
@@ -65,7 +66,10 @@ public class MenuScrollableAdd extends Activity implements View.OnClickListener{
         else{
             textView.setVisibility(View.GONE);
             myStocks.add(textView.getText().toString());
+            StockListSingleton.getInstance().addData(textView.getText().toString());
             populateListView();
+            textView.setText("");
+
         }
     }
 }
