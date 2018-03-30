@@ -39,10 +39,10 @@ before_install:
 jobs:
   include:
     - stage: build
+      script: sonar-scanner
       script: ./gradlew build
     - stage: test
       script: ./gradlew test
-      script: sonar-scanner
 
 script: ./gradlew test
 
