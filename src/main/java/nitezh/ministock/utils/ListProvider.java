@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService.RemoteViewsFactory;
 
+
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import nitezh.ministock.R;
 
@@ -21,7 +23,7 @@ public class ListProvider implements RemoteViewsFactory {
     private Context context = null;
     private int appWidgetId;
     private JSONObject json = null;
-    private String[] stockList = {"BTC", "ETH", "GOOG", "AAPL", "TSLA", "GM", "NFLX", "DIS", "TWTR", "PYPL", "FEYE", "FB", "BABA"};
+    private ArrayList<String> stockList = StockListSingleton.getInstance().getData();
 
     public ListProvider(Context context, Intent intent) {
         this.context = context;
@@ -41,7 +43,6 @@ public class ListProvider implements RemoteViewsFactory {
 
 
     private void populateListItem() {
-        System.out.println(stockList);
         try {
             for (String stock : stockList) {
                 ListItem listItem = new ListItem();

@@ -1,18 +1,14 @@
-package nitezh.ministock.activities;
-
+package nitezh.ministock.activities.menu;
 
 import android.app.Activity;
 import android.os.Bundle;
 
 import nitezh.ministock.R;
 
-public class MenuScrollableActivity extends Activity {
-
-
+public class MenuScrollableSelectingWidgetViews extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_scrollable);
-
+        setContentView(R.layout.scroll_menu_selecting_widget_views);
     }
 }
