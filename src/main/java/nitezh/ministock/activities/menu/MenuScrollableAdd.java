@@ -66,6 +66,7 @@ public class MenuScrollableAdd extends Activity implements View.OnClickListener{
             textView.setVisibility(View.GONE);
             myStocks.add(textView.getText().toString());
             populateListView();
+            textView.setText("");
         }
     }
 }
