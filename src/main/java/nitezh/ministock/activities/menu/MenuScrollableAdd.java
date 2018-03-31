@@ -69,10 +69,7 @@ public class MenuScrollableAdd extends Activity implements View.OnClickListener{
             StockListSingleton.getInstance().addData(textView.getText().toString());
             populateListView();
             textView.setText("");
-<<<<<<< HEAD
-=======
 
->>>>>>> 295e9ff42888b709470fe4db8be56f23383fbcf5
         }
     }
 }
