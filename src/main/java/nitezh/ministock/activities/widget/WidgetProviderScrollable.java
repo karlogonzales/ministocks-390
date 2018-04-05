@@ -3,14 +3,17 @@ package nitezh.ministock.activities.widget;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
+import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.view.View;
 import android.widget.RemoteViews;
+
 /*import nitezh.ministock.utils.ListProvider;*/
 import nitezh.ministock.R;
 import nitezh.ministock.activities.menu.MenuScrollableActivity;
-import nitezh.ministock.activities.PreferencesActivity;
+import nitezh.ministock.utils.ListProvider;
 import nitezh.ministock.utils.WidgetService;
 
 public class WidgetProviderScrollable extends WidgetProviderBase {
@@ -19,9 +22,13 @@ public class WidgetProviderScrollable extends WidgetProviderBase {
      * this method is called every 30 mins as specified on widgetinfo.xml
      * this method is also called on every phone reboot
      */
+
+
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager,
                          int[] appWidgetIds) {
+
+
         final int N = appWidgetIds.length;
         /*int[] appWidgetIds holds ids of multiple instance of your widget
          * meaning you are placing more than one widgets on your homescreen*/
@@ -29,19 +36,7 @@ public class WidgetProviderScrollable extends WidgetProviderBase {
             RemoteViews remoteViews = updateWidgetListView(context,
                     appWidgetIds[i]);
             appWidgetManager.updateAppWidget(appWidgetIds[i], remoteViews);
-
-            //menu already implemented
-            Intent edit_intent = new Intent(context, PreferencesActivity.class);
-            edit_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            edit_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-            PendingIntent edit_pending = PendingIntent.getActivity(context, 0,
-                    edit_intent, 0);
-            RemoteViews edit_views = new RemoteViews(context.getPackageName(),
-                    R.layout.widget_scroll_layout);
-
-            edit_views.setOnClickPendingIntent(R.id.edit, edit_pending);
-            appWidgetManager.updateAppWidget(appWidgetIds[i], edit_views);
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.listViewWidget);
 
             //custom menu
             Intent intent = new Intent(context, MenuScrollableActivity.class);
@@ -53,10 +48,16 @@ public class WidgetProviderScrollable extends WidgetProviderBase {
             RemoteViews views = new RemoteViews(context.getPackageName(),
                     R.layout.widget_scroll_layout);
 
+
             views.setOnClickPendingIntent(R.id.custom, pending);
             appWidgetManager.updateAppWidget(appWidgetIds[i], views);
 
-			//Refresh menu
+            //Refresh menu
+            Intent intentRefresh = new Intent(context, ListProvider.class);
+
+            remoteViews.setOnClickFillInIntent(R.id.refresh, intentRefresh);
+            appWidgetManager.updateAppWidget(appWidgetIds[i], remoteViews);
+
 
 			/*Intent refreshIntent = new Intent(context, ListProvider.class);
 			refreshIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetIds[i]);
@@ -106,5 +107,8 @@ public class WidgetProviderScrollable extends WidgetProviderBase {
         return remoteViews;
     }
 
-
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        super.onReceive(context, intent);
+    }
 }
