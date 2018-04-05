@@ -252,7 +252,87 @@
             android:name=".utils.WidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
-        <activity android:name=".activities.MenuScrollableActivity"></activity>
-    </application>
+        <activity android:name=".activities.menu.MenuScrollableActivity"
+            android:label="Scrollable Widget Menu">
 
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableAdd"
+            android:label="Scrollable Widget Add"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableRemove"
+            android:label="Scrollable Widget Remove"
+            android:windowSoftInputMode="stateHidden"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableAppearance"
+            android:label="Scrollable Widget Appearance"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableAppBackground"
+            android:label="Scrollable Widget Appearance"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableAppTxtColor"
+            android:label="Scrollable Widget Appearance"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableAppTxtStyle"
+            android:label="Scrollable Widget Appearance"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableAbout"
+            android:label="About"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableRecentChanges"
+            android:label="Recent Changes"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableLicense"
+            android:label="License"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableTermsOfService"
+            android:label="Terms Of Service"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableAttributions"
+            android:label="Attributions"
+            >
+        </activity>
+
+        <activity android:name=".activities.menu.MenuScrollableHelp"
+            android:label="Help"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableEnteringStocks"
+            android:label="Entering Stocks"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableSelectingWidgetViews"
+            android:label="Selecting Widget Views"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableUsingThePortfolio"
+            android:label="Using The Portfolio"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableUpdatingPrices"
+            android:label="Updating Prices"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableOnlineHelp"
+            android:label="Online Help"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableOnlineFAQs"
+            android:label="Online FAQs"
+            >
+        </activity>
+        <activity android:name=".activities.menu.MenuScrollableSupport"
+            android:label="Support"
+            >
+        </activity>
+    </application>
 </manifest>
