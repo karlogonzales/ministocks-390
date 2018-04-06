@@ -3,22 +3,27 @@ package nitezh.ministock.utils;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
+
+
+import android.os.Looper;
 import android.widget.RemoteViews;
-import android.widget.RemoteViewsService.RemoteViewsFactory;
+import android.widget.RemoteViewsService;
+import android.widget.Toast;
 
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
+
 
 import nitezh.ministock.R;
+
 
 /**
  * If you are familiar with Adapter of ListView,this is the same as adapter
  * with few changes
  */
-public class ListProvider implements RemoteViewsFactory {
+public class ListProvider implements RemoteViewsService.RemoteViewsFactory {
     private ArrayList<ListItem> listItemList = new ArrayList<ListItem>();
     private Context context = null;
     private int appWidgetId;
@@ -29,9 +34,10 @@ public class ListProvider implements RemoteViewsFactory {
         this.context = context;
         appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
                 AppWidgetManager.INVALID_APPWIDGET_ID);
-
+        Toast.makeText(context, "populate list item", Toast.LENGTH_SHORT).show();
         populateListItem();
     }
+
 
     public String stockURLStringBuilder(String stock) {
         return "https:api.iextrading.com/1.0/stock/" + stock + "/price";
@@ -55,11 +61,15 @@ public class ListProvider implements RemoteViewsFactory {
                     listItem.content = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
 
                 listItemList.add(listItem);
+
+
+
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
     @Override
     public int getCount() {
@@ -84,6 +94,7 @@ public class ListProvider implements RemoteViewsFactory {
         remoteView.setTextViewText(R.id.heading, listItem.heading);
         remoteView.setTextViewText(R.id.content, listItem.content);
 
+
         return remoteView;
     }
 
@@ -105,11 +116,12 @@ public class ListProvider implements RemoteViewsFactory {
 
     @Override
     public void onCreate() {
-
     }
 
     @Override
     public void onDataSetChanged() {
+
+        populateListItem();
     }
 
     @Override
