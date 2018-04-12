@@ -34,7 +34,6 @@ public class ListProvider implements RemoteViewsService.RemoteViewsFactory {
         this.context = context;
         appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
                 AppWidgetManager.INVALID_APPWIDGET_ID);
-        Toast.makeText(context, "populate list item", Toast.LENGTH_SHORT).show();
         populateListItem();
     }
 
@@ -121,7 +120,6 @@ public class ListProvider implements RemoteViewsService.RemoteViewsFactory {
     @Override
     public void onDataSetChanged() {
 
-        populateListItem();
     }
 
     @Override

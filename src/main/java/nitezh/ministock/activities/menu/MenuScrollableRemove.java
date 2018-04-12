@@ -21,7 +21,7 @@ import nitezh.ministock.utils.StockListSingleton;
 public class MenuScrollableRemove extends Activity implements AdapterView.OnItemClickListener{
 
     //temporary list search
-    private String[] stockListSearch = {"BTC", "ETH", "GOOG", "AAPL", "TSLA", "GM", "NFLX", "DIS", "TWTR", "PYPL", "FEYE", "FB", "BABA"};
+//    private String[] stockListSearch = {"BTC", "ETH", "GOOG", "AAPL", "TSLA", "GM", "NFLX", "DIS", "TWTR", "PYPL", "FEYE", "FB", "BABA"};
     private EditText editSearch;
     private ListView listSearch;
     private ArrayAdapter<String> adapter;
@@ -35,11 +35,13 @@ public class MenuScrollableRemove extends Activity implements AdapterView.OnItem
 
         listSearch = (ListView) findViewById(R.id.listSearch);
         editSearch = (EditText) findViewById(R.id.editSearch);
+        //list the available stock data to be removed
         adapter = new ArrayAdapter<String>(this, R.layout.scroll_menu_add_search_listitem, R.id.textView, stockList);
         listSearch.setAdapter(adapter);
-
+        //allow each item of the list to be clickable
         listSearch.setOnItemClickListener(this);
 
+        //filter
         editSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -60,17 +62,20 @@ public class MenuScrollableRemove extends Activity implements AdapterView.OnItem
     @Override
     public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
         // Get the selected item text from ListView
-        String item = Integer.toString(position);
+        String itemClicked = adapter.getItemAtPosition(position).toString();
 
-        Toast toast= Toast.makeText(getApplicationContext(),item,Toast.LENGTH_SHORT);
+        //user confirmation, removal successful
+        Toast toast= Toast.makeText(getApplicationContext(),"Removed " + itemClicked,Toast.LENGTH_SHORT);
         toast.show();
         removeStockData(position);
     }
 
 
     public void removeStockData(int position){
-        stockList.remove(position);
-        adapter = new ArrayAdapter<String>(this, R.layout.scroll_menu_add_search_listitem, R.id.textView, stockList);
+
+//      remove method of array list
+//      stockList.remove(position);
+        StockListSingleton.getInstance().deleteData(position);
         listSearch.setAdapter(adapter);
     }
 }
