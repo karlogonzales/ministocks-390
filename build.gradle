@@ -8,19 +8,19 @@ buildscript {
     dependencies {
         // Check supported Gradle version at the URL below before changing the below
         // https://repo1.maven.org/maven2/com/android/tools/build/gradle/
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:2.3.0'
     }
 }
 
 plugins {
-    id "org.sonarqube" version "2.6"
+    id "org.sonarqube" version "2.6.2"
 }
 
 apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '25.0.2'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
