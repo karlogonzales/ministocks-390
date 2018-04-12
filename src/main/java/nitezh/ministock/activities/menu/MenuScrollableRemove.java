@@ -70,5 +70,7 @@ public class MenuScrollableRemove extends Activity implements AdapterView.OnItem
 
     public void removeStockData(int position){
         stockList.remove(position);
+        adapter = new ArrayAdapter<String>(this, R.layout.scroll_menu_add_search_listitem, R.id.textView, stockList);
+        listSearch.setAdapter(adapter);
     }
 }
