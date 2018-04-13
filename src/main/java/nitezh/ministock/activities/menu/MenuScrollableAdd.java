@@ -9,10 +9,12 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import nitezh.ministock.R;
 import nitezh.ministock.utils.StockListSingleton;
@@ -57,6 +59,7 @@ public class MenuScrollableAdd extends Activity implements View.OnClickListener{
 
     }
 
+
     private void populateListView(){
         listView.setAdapter(adapterListView);
     }
@@ -73,15 +76,26 @@ public class MenuScrollableAdd extends Activity implements View.OnClickListener{
         //with search, will add to the list view
         else{
             textView.setVisibility(View.GONE);
-            StockListSingleton.getInstance().addData(textView.getText().toString());
+
+            //check for empty is valid
+            //accept 1 to 4 character, must be a letter
+            if(Pattern.matches("[a-zA-Z]{1,4}", textView.getText())){
+
+
+                StockListSingleton.getInstance().addData(textView.getText().toString());
 
 //            add to array list
 //            stockList.add(textView.getText().toString());
 
-            populateListView();
+                populateListView();
+
+            }
+            else{
+                Toast.makeText(this, "Invalid Input", Toast.LENGTH_SHORT).show();
+            }
+
             //remove the previous input in the search bar
             textView.setText("");
-
         }
     }
 }

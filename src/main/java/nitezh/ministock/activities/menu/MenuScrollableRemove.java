@@ -34,30 +34,13 @@ public class MenuScrollableRemove extends Activity implements AdapterView.OnItem
         setContentView(R.layout.scroll_menu_remove);
 
         listSearch = (ListView) findViewById(R.id.listSearch);
-        editSearch = (EditText) findViewById(R.id.editSearch);
+
         //list the available stock data to be removed
         adapter = new ArrayAdapter<String>(this, R.layout.scroll_menu_add_search_listitem, R.id.textView, stockList);
         listSearch.setAdapter(adapter);
         //allow each item of the list to be clickable
         listSearch.setOnItemClickListener(this);
 
-        //filter
-        editSearch.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                MenuScrollableRemove.this.adapter.getFilter().filter(s);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
     }
     @Override
     public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
