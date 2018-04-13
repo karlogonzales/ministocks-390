@@ -22,11 +22,11 @@
         />
 
     <TextView
-        android:id="@+id/edit"
+        android:id="@+id/update_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:text="Edit"
+        android:text="Update"
         android:textSize="15sp"
 
         />

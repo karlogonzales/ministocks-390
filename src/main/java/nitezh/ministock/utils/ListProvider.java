@@ -3,16 +3,20 @@ package nitezh.ministock.utils;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService.RemoteViewsFactory;
+import android.widget.Toast;
 
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.concurrent.ExecutionException;
 
 import nitezh.ministock.R;
+import nitezh.ministock.activities.widget.WidgetProviderScrollable;
 
 /**
  * If you are familiar with Adapter of ListView,this is the same as adapter
@@ -21,16 +25,16 @@ import nitezh.ministock.R;
 public class ListProvider implements RemoteViewsFactory {
     private ArrayList<ListItem> listItemList = new ArrayList<ListItem>();
     private Context context = null;
-    private int appWidgetId;
+//    private int appWidgetId;
     private JSONObject json = null;
-    private ArrayList<String> stockList = StockListSingleton.getInstance().getData();
+    private ArrayList<String> stockList = null;
 
     public ListProvider(Context context, Intent intent) {
         this.context = context;
-        appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
-                AppWidgetManager.INVALID_APPWIDGET_ID);
+//        appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
+//                AppWidgetManager.INVALID_APPWIDGET_ID);
 
-        populateListItem();
+
     }
 
     public String stockURLStringBuilder(String stock) {
@@ -61,6 +65,18 @@ public class ListProvider implements RemoteViewsFactory {
         }
     }
 
+    private String getStockData(String symbol) {
+        String stockData = null;
+        try {
+            stockData = new ServiceTask(this.context).execute(stockURLStringBuilder(symbol), "GET", "").get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return stockData;
+    }
+
     @Override
     public int getCount() {
         return listItemList.size();
@@ -84,6 +100,12 @@ public class ListProvider implements RemoteViewsFactory {
         remoteView.setTextViewText(R.id.heading, listItem.heading);
         remoteView.setTextViewText(R.id.content, listItem.content);
 
+        Intent i = new Intent();
+        Bundle extras = new Bundle();
+
+        extras.putString(WidgetProviderScrollable.EXTRA_WORD, listItem.heading);
+        i.putExtras(extras);
+        remoteView.setOnClickFillInIntent(R.id.heading, i);
         return remoteView;
     }
 
@@ -105,11 +127,15 @@ public class ListProvider implements RemoteViewsFactory {
 
     @Override
     public void onCreate() {
-
+        ListItem listItem = new ListItem();
+        listItem.heading = "GOOG";
+        listItem.content = getStockData("GOOG");
+        listItemList.add(listItem);
     }
 
     @Override
     public void onDataSetChanged() {
+        Log.e("onDataSetChanged", "onDataSetChanged");
     }
 
     @Override
