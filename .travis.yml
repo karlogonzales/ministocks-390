@@ -13,8 +13,18 @@ android:
     - android-$ANDROID_API
     - sys-img-armeabi-v7a-android-$ANDROID_API
 
+  licenses:
+    - 'android-sdk-preview-license-.+'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+
 jdk:
   - oraclejdk8
+addons:
+  sonarcloud:
+    organization: "hasan-ahmed-github"
+    token:
+      secure: "WF6b9W9xD/cZKxlJvv6SpSZfUBXJtEF/ZiIstswIGQzZTpsA2z6v00e2i/BvXn87ySD9ENDuuz5/HdkX1J5G4DmdTPt6CfJSlufT/6isnxegtGt9Dc5ZmAQbJ2/m3/basfmMHBBO6XDnYRJxWYixlulZEshVBiUtX8eeGV544/xtN8RHJUtit6Q+fTJUEQYdpb7iEfpT8lYFkaDsFeQ44lT3RQxDgiDDg32jNsqOaBpNtGfAzOytA39XAM7WnIvOeCQ6RSiZvSToHLDjvgWbD9QWzWflgpyC1/2WJjOwVCEP1n+floLyOg3IcKPqohMJ9H75i1FibJga1PL2BqgbmYglpqg8xHcf7X232g+F4f45i9fMPFyE6Tx1npPOqQmbpZmfCXhe/V033kDvl8qdnGx3+XE0Eyv2BMsJcNwHrAWPXsz5ljgjEnEqf4l5yMSp2yrsb5RbZQ+ZDbQ4C9JpTpQ1mabw6Mh9qyrKVw5YNrLp5lpTiGoeIrMNrC2NU6O+Z8GZdkzuKJgPG8v0jA/nOEueIzN1/lnm3gZ7ndejr0azkPYaxWgHilJzKl4TfPB14gaAsxrnNUKSADEYPI709ZsPqY+pKnt6USgC1t0ACGky+L6AG4EI6RQeLvWYwTVfQlIdXSQHS3x5TjAAdK++RmbBqK7f+nk8YOpjq0gpTQ0="
 
 before_install:
   - chmod +x gradlew
@@ -29,6 +39,7 @@ before_install:
 jobs:
   include:
     - stage: build
+      script: ./gradlew sonarqube
       script: ./gradlew build
     - stage: test
       script: ./gradlew test
