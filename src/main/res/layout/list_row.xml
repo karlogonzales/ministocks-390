@@ -14,25 +14,35 @@
         android:src="@drawable/icon" />
 
     <TextView
-        android:id="@+id/heading"
+        android:id="@+id/symbol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_toRightOf="@id/imageView"
         android:singleLine="true"
-        android:text="Heading"
+        android:text="symbol"
         android:textSize="14sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/content"
+        android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/heading"
+        android:layout_below="@id/symbol"
         android:layout_marginTop="5dip"
         android:layout_toRightOf="@id/imageView"
-        android:text="Content"
+        android:text="price"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/percentageChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5dip"
+        android:layout_toRightOf="@id/price"
+        android:text="percentageChange"
         android:textSize="14sp" />
 
 </RelativeLayout>
