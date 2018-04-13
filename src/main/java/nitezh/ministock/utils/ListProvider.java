@@ -52,21 +52,25 @@ public class ListProvider implements RemoteViewsFactory {
 
         try {
             for (String stock : stockList) {
+                String content = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
+
+                if(content.equals("Unknown symbol"))
+                    continue;
 
                 if (getCount() == 0){
                     ListItem tempListItem = new ListItem();
                     tempListItem.heading = stock;
-                    tempListItem.content = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
+                    tempListItem.content = content;
                     listItemList.add(tempListItem);
                 }
                 else {
                     for (ListItem listItem : listItemList) {
                         if (listItem.heading == stock) {
-                            listItem.content = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
+                            listItem.content = content;
                         } else {
                             ListItem tempListItem = new ListItem();
                             tempListItem.heading = stock;
-                            tempListItem.content = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
+                            tempListItem.content = content;
                             listItemList.add(tempListItem);
                         }
                     }
