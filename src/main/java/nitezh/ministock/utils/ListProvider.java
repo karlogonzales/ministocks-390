@@ -47,18 +47,35 @@ public class ListProvider implements RemoteViewsFactory {
 
 
     private void populateListItem() {
+        stockList = new StockListSingleton().getInstance().getData();
+
+
         try {
             for (String stock : stockList) {
-                ListItem listItem = new ListItem();
-                listItem.heading = stock;
 
-                if (stock.equals("BTC") || stock.equals("ETH")) {
-
-                    listItem.content = new JSONObject(new ServiceTask(this.context).execute(cryptoURLStringBuilder(stock), "GET", "").get()).getString("CAD");
-                } else
-                    listItem.content = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
-
-                listItemList.add(listItem);
+                if (getCount() == 0){
+                    ListItem tempListItem = new ListItem();
+                    tempListItem.heading = stock;
+                    tempListItem.content = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
+                    listItemList.add(tempListItem);
+                }
+                else {
+                    for (ListItem listItem : listItemList) {
+                        if (listItem.heading == stock) {
+                            listItem.content = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
+                        } else {
+                            ListItem tempListItem = new ListItem();
+                            tempListItem.heading = stock;
+                            tempListItem.content = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
+                            listItemList.add(tempListItem);
+                        }
+                    }
+                }
+//                if (stock.equals("BTC") || stock.equals("ETH")) {
+//
+//                    listItem.content = new JSONObject(new ServiceTask(this.context).execute(cryptoURLStringBuilder(stock), "GET", "").get()).getString("CAD");
+//                } else
+//                    listItem.content = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -127,14 +144,15 @@ public class ListProvider implements RemoteViewsFactory {
 
     @Override
     public void onCreate() {
-        ListItem listItem = new ListItem();
-        listItem.heading = "GOOG";
-        listItem.content = getStockData("GOOG");
-        listItemList.add(listItem);
+//        ListItem listItem = new ListItem();
+//        listItem.heading = "GOOG";
+//        listItem.content = getStockData("GOOG");
+//        listItemList.add(listItem);
     }
 
     @Override
     public void onDataSetChanged() {
+        populateListItem();
         Log.e("onDataSetChanged", "onDataSetChanged");
     }
 

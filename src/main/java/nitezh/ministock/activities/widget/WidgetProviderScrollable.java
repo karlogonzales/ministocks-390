@@ -43,7 +43,7 @@ public class WidgetProviderScrollable extends WidgetProviderBase {
             clickIntent = new Intent(context, WidgetProviderScrollable.class);
             clickIntent.setAction(UPDATE_LIST);
             PendingIntent pendingIntentRefresh = PendingIntent.getBroadcast(context,0, clickIntent, 0);
-            remoteViews.setOnClickPendingIntent(R.id.update_list, pendingIntentRefresh);
+            remoteViews.setOnClickPendingIntent(R.id.refresh_list, pendingIntentRefresh);
 
             appWidgetManager.updateAppWidget(appWidgetIds[i], remoteViews);
 
