@@ -65,7 +65,7 @@ public class ListProvider implements RemoteViewsFactory {
                 }
                 else {
                     for (ListItem listItem : listItemList) {
-                        if (listItem.heading == stock) {
+                        if (listItem.heading.equals(stock)) {
                             listItem.content = content;
                         } else {
                             ListItem tempListItem = new ListItem();
@@ -148,10 +148,6 @@ public class ListProvider implements RemoteViewsFactory {
 
     @Override
     public void onCreate() {
-//        ListItem listItem = new ListItem();
-//        listItem.heading = "GOOG";
-//        listItem.content = getStockData("GOOG");
-//        listItemList.add(listItem);
     }
 
     @Override

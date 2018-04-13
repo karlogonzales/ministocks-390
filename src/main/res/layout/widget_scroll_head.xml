@@ -12,21 +12,21 @@
         android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/custom"
+        android:id="@+id/refresh_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Menu"
+        android:text="Refresh"
         android:textSize="15sp"
 
         />
 
     <TextView
-        android:id="@+id/refresh_list"
+        android:id="@+id/custom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:text="Refresh"
+        android:text="Menu"
         android:textSize="15sp"
 
         />
