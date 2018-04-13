@@ -39,8 +39,9 @@ before_install:
 jobs:
   include:
     - stage: build
-      script: sonar-scanner
-      script: ./gradlew build
+      script: 
+      - ./gradlew build
+      - sonar-scanner
     - stage: test
       script: ./gradlew test
 
