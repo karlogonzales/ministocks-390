@@ -56,49 +56,21 @@ public class ListProvider implements RemoteViewsFactory {
 
     private void populateListItem() {
 
-        //Creating new StockQuoteRepository and passing it the current context
-        WidgetRepository widgetRepository = new AndroidWidgetRepository(this.context);
-        Storage storage = PreferenceStorage.getInstance(this.context);
-        StockQuoteRepository quoteRepository = new StockQuoteRepository(
-                PreferenceStorage.getInstance(this.context), new StorageCache(storage),
-                widgetRepository);
-//Extracting the quotes into a list
-        this.quotes = quoteRepository.getQuotes(
-                widgetRepository.getWidget(this.appWidgetId).getSymbols(),
-                updateType == WidgetProviderBase.UpdateType.VIEW_UPDATE);
-//
-//
-        if(!quotes.isEmpty()) {
-            Collection<StockQuote> values = quotes.values();
-            List<StockQuote> finalStocks = new ArrayList<StockQuote>(values);
-            //Creating listItems from the quote list we made and passing them to the listview
-            for (int i = 0; i < finalStocks.size(); i++) {
-                StockQuote quote = finalStocks.get(i);
+        try {
+            for (String stock : stockList) {
                 ListItem listItem = new ListItem();
-                listItem.symbol = quote.getSymbol();
-                listItem.price = quote.getPrice();
-                listItem.percentageChange = quote.getPercent();
+                listItem.symbol = stock;
+
+                if (stock.equals("BTC") || stock.equals("ETH")) {
+
+                    listItem.price = new JSONObject(new ServiceTask(this.context).execute(cryptoURLStringBuilder(stock), "GET", "").get()).getString("CAD");
+                } else
+                    listItem.price = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
+
                 listItemList.add(listItem);
             }
-        }
-        else{
-            System.out.println(stockList);
-            try {
-                for (String stock: stockList) {
-                    ListItem listItem = new ListItem();
-                    listItem.symbol = stock;
-
-                    if (stock.equals("BTC") || stock.equals("ETH")) {
-
-                        listItem.price = new JSONObject(new ServiceTask(this.context).execute(cryptoURLStringBuilder(stock), "GET", "").get()).getString("CAD");
-                    }else
-                        listItem.price = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
-
-                    listItemList.add(listItem);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
