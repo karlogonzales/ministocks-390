@@ -46,7 +46,7 @@ public class CustomMenuTests extends AndroidJUnitRunner{
         mDevice.waitForIdle();
 
         // Click the custom menu button
-        UiObject customWidgetButton = mDevice.findObject(new UiSelector().text("Custom"));
+        UiObject customWidgetButton = mDevice.findObject(new UiSelector().text("Menu"));
 
         try {
             customWidgetButton.clickAndWaitForNewWindow();
