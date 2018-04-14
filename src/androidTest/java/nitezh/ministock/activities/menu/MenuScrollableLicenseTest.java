@@ -12,11 +12,11 @@ import nitezh.ministock.R;
 
 import static org.junit.Assert.*;
 
-public class MenuScrollableOnlineFAQsTest {
+public class MenuScrollableLicenseTest {
 
     @Rule
-    public ActivityTestRule<MenuScrollableOnlineFAQs> mActivityTestRule = new ActivityTestRule<>(MenuScrollableOnlineFAQs.class);
-    private MenuScrollableOnlineFAQs mActivity = null;
+    public ActivityTestRule<MenuScrollableLicense> mActivityTestRule = new ActivityTestRule<>(MenuScrollableLicense.class);
+    private MenuScrollableLicense mActivity = null;
 
     @Before
     public void setUp() throws Exception {
@@ -25,7 +25,7 @@ public class MenuScrollableOnlineFAQsTest {
     }
     @Test
     public void testLaunch () {
-        View view = mActivity.findViewById(R.id.FAQ);
+        View view = mActivity.findViewById(R.id.License);
         assertNotNull(view);
     }
     @After
