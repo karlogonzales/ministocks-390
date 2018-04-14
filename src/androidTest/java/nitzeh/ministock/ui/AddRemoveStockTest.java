@@ -30,8 +30,12 @@ public class AddRemoveStockTest extends AndroidJUnitRunner{
         super.onCreate(args);
     }
 
+    /**
+     * This tests adding the NFLX stock to the widget
+     * @throws UiObjectNotFoundException
+     */
     @Test
-    public void addRemoveStockTest () throws UiObjectNotFoundException {
+    public void addStockTest () throws UiObjectNotFoundException {
         //Skipif
         Assume.assumeTrue(System.getenv("TRAVIS_CI") == null);
 
