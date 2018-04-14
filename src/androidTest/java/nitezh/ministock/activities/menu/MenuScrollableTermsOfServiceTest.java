@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import nitezh.ministock.R;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 public class MenuScrollableTermsOfServiceTest {
 
@@ -23,15 +23,17 @@ public class MenuScrollableTermsOfServiceTest {
 
         mActivity = mActivityTestRule.getActivity();
     }
+
     @Test
-    public void testLaunch () {
+    public void testLaunch() {
         View view = mActivity.findViewById(R.id.terms_of_service);
         assertNotNull(view);
 
     }
+
     @After
     public void tearDown() throws Exception {
-            mActivity = null;
-        }
+        mActivity = null;
+    }
 
 }

@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import nitezh.ministock.R;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 public class MenuScrollableSupportTest {
 
@@ -23,11 +23,13 @@ public class MenuScrollableSupportTest {
 
         mActivity = mActivityTestRule.getActivity();
     }
+
     @Test
-    public void testLaunch () {
+    public void testLaunch() {
         View view = mActivity.findViewById(R.id.Support);
         assertNotNull(view);
     }
+
     @After
     public void tearDown() throws Exception {
         mActivity = null;

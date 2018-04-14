@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import nitezh.ministock.R;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 public class MenuScrollableHelpTest {
 
@@ -20,19 +20,19 @@ public class MenuScrollableHelpTest {
     private MenuScrollableHelp mActivity = null;
 
     @Before
-    public void setUp () throws Exception {
+    public void setUp() throws Exception {
         mActivity = mActivityTestRule.getActivity();
     }
 
     //If view is not null then the Launch of the view is successful
     @Test
-    public void testLaunch () {
+    public void testLaunch() {
         View view = mActivity.findViewById(R.id.entering_stocks);
         assertNotNull(view);
     }
 
     @After
-    public void tearDown () throws Exception {
+    public void tearDown() throws Exception {
         mActivity = null;
     }
 
