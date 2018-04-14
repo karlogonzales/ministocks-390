@@ -66,6 +66,7 @@ public class DateTools {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.HOUR_OF_DAY, Integer.parseInt(items[0]));
         cal.set(Calendar.MINUTE, Integer.parseInt(items[1]));
+        cal.set(Calendar.SECOND, Integer.parseInt(items[2]));
         return cal.getTime();
     }
 
