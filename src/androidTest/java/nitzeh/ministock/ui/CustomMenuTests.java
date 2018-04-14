@@ -26,6 +26,7 @@ import static junit.framework.Assert.fail;
 public class CustomMenuTests extends AndroidJUnitRunner{
     private static final int LAUNCH_TIMEOUT = 5000;;
     private UiDevice mDevice;
+    private String[] customMenuItems = {"Add", "Remove", "Change Order", "Update Stocks", "Appearance", "Help", "About"};
 
     @Override
     public void onCreate(Bundle args) {
@@ -33,7 +34,7 @@ public class CustomMenuTests extends AndroidJUnitRunner{
     }
 
     @Test
-    public void customMenuTest(){
+    public void customMenuItemsTest() throws UiObjectNotFoundException {
         //Skipif
         Assume.assumeTrue(System.getenv("TRAVIS_CI") == null);
 
@@ -44,6 +45,7 @@ public class CustomMenuTests extends AndroidJUnitRunner{
         mDevice.pressHome();
         mDevice.waitForIdle();
 
+        // Click the custom menu button
         UiObject customWidgetButton = mDevice.findObject(new UiSelector().text("Custom"));
 
         try {
@@ -52,5 +54,30 @@ public class CustomMenuTests extends AndroidJUnitRunner{
             System.out.println("The custom menu button could not be found.");
             fail();
         }
+
+        UiScrollable scrollableMenuList = new UiScrollable(new UiSelector()
+                .className("android.widget.ScrollView")
+                .packageName("nitezh.ministock"));
+
+        scrollableMenuList.setAsVerticalList();
+        int maxSearchSwipes = scrollableMenuList.getMaxSearchSwipes();
+        UiObject menuItemObject = null;
+
+        for (String menuItem : customMenuItems){
+            scrollableMenuList.scrollToBeginning(10);
+            for (int i = 0; i<maxSearchSwipes; i++){
+                menuItemObject = mDevice.findObject(new UiSelector().text(menuItem));
+                if (menuItemObject != null){
+                    break;
+                } else if (menuItemObject == null && (i == maxSearchSwipes -1)){
+                    System.out.println("The menu item " + menuItem + " could not be found");
+                    fail();
+                }else if (menuItemObject == null){
+                    scrollableMenuList.scrollForward();
+                    continue;
+                }
+            }
+        }
     }
+
 }
