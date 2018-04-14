@@ -3,16 +3,20 @@ package nitezh.ministock.utils;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService.RemoteViewsFactory;
+import android.widget.Toast;
 
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.concurrent.ExecutionException;
 
 import nitezh.ministock.R;
+import nitezh.ministock.activities.widget.WidgetProviderScrollable;
 
 /**
  * If you are familiar with Adapter of ListView,this is the same as adapter
@@ -21,20 +25,20 @@ import nitezh.ministock.R;
 public class ListProvider implements RemoteViewsFactory {
     private ArrayList<ListItem> listItemList = new ArrayList<ListItem>();
     private Context context = null;
-    private int appWidgetId;
+    //    private int appWidgetId;
     private JSONObject json = null;
-    private ArrayList<String> stockList = StockListSingleton.getInstance().getData();
+    private ArrayList<String> stockList = null;
 
     public ListProvider(Context context, Intent intent) {
         this.context = context;
-        appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
-                AppWidgetManager.INVALID_APPWIDGET_ID);
+//        appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
+//                AppWidgetManager.INVALID_APPWIDGET_ID);
 
-        populateListItem();
+
     }
 
     public String stockURLStringBuilder(String stock) {
-        return "https:api.iextrading.com/1.0/stock/" + stock + "/price";
+        return "https://api.iextrading.com/1.0/stock/" + stock + "/price";
     }
 
     public String cryptoURLStringBuilder(String crypto) {
@@ -43,22 +47,52 @@ public class ListProvider implements RemoteViewsFactory {
 
 
     private void populateListItem() {
+        stockList = new StockListSingleton().getInstance().getData();
+
+
         try {
             for (String stock : stockList) {
-                ListItem listItem = new ListItem();
-                listItem.heading = stock;
+                String content = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
+                ListItem tempListItem = new ListItem();
+                tempListItem.heading = stock;
+                tempListItem.content = content;
 
-                if (stock.equals("BTC") || stock.equals("ETH")) {
+                if(content.equals("Unknown symbol"))
+                    continue;
 
-                    listItem.content = new JSONObject(new ServiceTask(this.context).execute(cryptoURLStringBuilder(stock), "GET", "").get()).getString("CAD");
-                } else
-                    listItem.content = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
-
-                listItemList.add(listItem);
+                if (getCount() == 0){
+                    listItemList.add(tempListItem);
+                }
+                else {
+                    for (ListItem listItem : listItemList) {
+                        if (listItem.heading.equals(stock)) {
+                            listItem.content = content;
+                        } else {
+                            listItemList.add(tempListItem);
+                        }
+                    }
+                }
+//                if (stock.equals("BTC") || stock.equals("ETH")) {
+//
+//                    listItem.content = new JSONObject(new ServiceTask(this.context).execute(cryptoURLStringBuilder(stock), "GET", "").get()).getString("CAD");
+//                } else
+//                    listItem.content = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private String getStockData(String symbol) {
+        String stockData = null;
+        try {
+            stockData = new ServiceTask(this.context).execute(stockURLStringBuilder(symbol), "GET", "").get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return stockData;
     }
 
     @Override
@@ -84,6 +118,12 @@ public class ListProvider implements RemoteViewsFactory {
         remoteView.setTextViewText(R.id.heading, listItem.heading);
         remoteView.setTextViewText(R.id.content, listItem.content);
 
+        Intent i = new Intent();
+        Bundle extras = new Bundle();
+
+        extras.putString(WidgetProviderScrollable.EXTRA_WORD, listItem.heading);
+        i.putExtras(extras);
+        remoteView.setOnClickFillInIntent(R.id.heading, i);
         return remoteView;
     }
 
@@ -105,11 +145,12 @@ public class ListProvider implements RemoteViewsFactory {
 
     @Override
     public void onCreate() {
-
     }
 
     @Override
     public void onDataSetChanged() {
+        populateListItem();
+        Log.e("onDataSetChanged", "onDataSetChanged");
     }
 
     @Override
