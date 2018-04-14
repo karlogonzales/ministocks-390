@@ -25,7 +25,7 @@ import nitezh.ministock.activities.widget.WidgetProviderScrollable;
 public class ListProvider implements RemoteViewsFactory {
     private ArrayList<ListItem> listItemList = new ArrayList<ListItem>();
     private Context context = null;
-//    private int appWidgetId;
+    //    private int appWidgetId;
     private JSONObject json = null;
     private ArrayList<String> stockList = null;
 
@@ -38,7 +38,7 @@ public class ListProvider implements RemoteViewsFactory {
     }
 
     public String stockURLStringBuilder(String stock) {
-        return "https:api.iextrading.com/1.0/stock/" + stock + "/price";
+        return "https://api.iextrading.com/1.0/stock/" + stock + "/price";
     }
 
     public String cryptoURLStringBuilder(String crypto) {
@@ -53,14 +53,14 @@ public class ListProvider implements RemoteViewsFactory {
         try {
             for (String stock : stockList) {
                 String content = new ServiceTask(this.context).execute(stockURLStringBuilder(stock), "GET", "").get();
+                ListItem tempListItem = new ListItem();
+                tempListItem.heading = stock;
+                tempListItem.content = content;
 
                 if(content.equals("Unknown symbol"))
                     continue;
 
                 if (getCount() == 0){
-                    ListItem tempListItem = new ListItem();
-                    tempListItem.heading = stock;
-                    tempListItem.content = content;
                     listItemList.add(tempListItem);
                 }
                 else {
@@ -68,9 +68,6 @@ public class ListProvider implements RemoteViewsFactory {
                         if (listItem.heading.equals(stock)) {
                             listItem.content = content;
                         } else {
-                            ListItem tempListItem = new ListItem();
-                            tempListItem.heading = stock;
-                            tempListItem.content = content;
                             listItemList.add(tempListItem);
                         }
                     }
